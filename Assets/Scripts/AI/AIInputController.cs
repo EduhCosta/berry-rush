@@ -15,10 +15,18 @@ public class AIInputController : MonoBehaviour
 
     private CheckpointData[] _aICheckpointsDone;
     private int currentCheckpoint = 1;
+    private bool _restarting = false;
 
     void OnEnable()
     {
         _aiId = AIIdentifier.GetAIId(gameObject);
+        DeadZoneHandler.DeadZoneHandler_OutOfTrack += ShouldRestarting;
+    }
+
+    private void ShouldRestarting(string currentId)
+    {
+        if (_aiId == currentId) _restarting = true;
+        else _restarting = false;
     }
 
     void Update()
@@ -26,7 +34,7 @@ public class AIInputController : MonoBehaviour
         _aICheckpointsDone = RaceStorage.Instance.GetCheckpointsByRacer(_aiId).ToArray();
         _forwardAngleToNextCheckpoint = GetComponent<AIDecisionHandler>().AngleToNextCheckpointForward;
         
-        Accelerate = GoToNextPoint();
+        Accelerate = _restarting ? 0 : GoToNextPoint();
         Direction = KeepDirectionToNextCheckpoint();
     }
 
