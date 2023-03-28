@@ -60,6 +60,8 @@ public class DeadZoneHandler : MonoBehaviour
 
         if (cart == null || collider == null) return;
 
+        Vector3 newPosition = new Vector3(_lastTransform.position.x, )
+
         cart.transform.position = _lastTransform.position;
         collider.transform.position = _lastTransform.position;
 
