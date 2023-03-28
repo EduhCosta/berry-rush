@@ -231,6 +231,15 @@ public class RaceStorage : MonoBehaviour
     }
 
     /// <summary>
+    /// Retrun a checkpoints by id
+    /// </summary>
+    public RaceCheckpoint GetRaceCheckpointsById(int id)
+    {
+        List<RaceCheckpoint> _arrayOfCheckpoints = new List<RaceCheckpoint>(QueueOfRaceCheckpoints.ToArray());
+        return _arrayOfCheckpoints.Find(el => el.checkpointOrder == id);
+    }
+
+    /// <summary>
     /// Returns the track LapHandler
     /// </summary>
     public LapHandler GetLapHandler()
