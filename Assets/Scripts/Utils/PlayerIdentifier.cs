@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 public static class PlayerIdentifier
 {
     const string PLAYER_TAG = "Player";
@@ -24,19 +25,15 @@ public static class PlayerIdentifier
         return null;
     }
 
-    public static AICartController GetAIKart(Collider collider)
+    public static GameObject GetPlayerGameObject(Collider collider)
     {
         if (IsPlayer(collider))
         {
             GameObject parent = collider.gameObject.transform.parent.gameObject;
-            return parent.GetComponentInChildren<AICartController>();
+            return parent;
         }
 
         return null;
     }
 
-    public static string GetPlayerId(GameObject gameObject)
-    {
-        return gameObject.GetComponentInParent<CartGameSettings>().GetPlayerId();
-    }
 }

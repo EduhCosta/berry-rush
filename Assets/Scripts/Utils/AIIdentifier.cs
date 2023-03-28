@@ -33,4 +33,15 @@ public static class AIIdentifier
     {
         return gameObject.GetComponentInParent<CartGameSettings>().PlayerName;
     }
+
+    public static GameObject GetAIGameObject(Collider collider)
+    {
+        if (IsAI(collider))
+        {
+            GameObject parent = collider.gameObject.transform.parent.gameObject;
+            return parent;
+        }
+
+        return null;
+    }
 }
