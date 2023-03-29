@@ -25,10 +25,10 @@ public class DeadZoneHandler : MonoBehaviour
             if (checkpoints.Length < 0) return;
             
             CheckpointData lastCheckpoint =  checkpoints[checkpoints.Length - 1];
-            Debug.Log(lastCheckpoint.ToString());
+            // Debug.Log(lastCheckpoint.ToString());
 
             RaceCheckpoint raceCheckpoint = RaceStorage.Instance.GetRaceCheckpointsById(lastCheckpoint.checkpointOrder);
-            Debug.Log(raceCheckpoint.gameObject.transform);
+            // Debug.Log(raceCheckpoint.gameObject.transform);
 
             if (PlayerIdentifier.IsPlayer(other))
             {
@@ -48,8 +48,7 @@ public class DeadZoneHandler : MonoBehaviour
 
     private void Reborn()
     {
-        Debug.Log("Call me"); 
-        Debug.Log(_lastTransform.position);
+        //Debug.Log(_lastTransform.position);
 
         GameObject cart = null;
         Collider collider = null;

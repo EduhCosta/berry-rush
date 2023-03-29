@@ -31,5 +31,5 @@ EditorBuildSettings:
     guid: 43d3576fccef451469109497b56db136
   - enabled: 1
     path: Assets/Scenes/Fortress/RaceFortress.unity
-    guid: 98409a8b0e92a23498427726674e606f
+    guid: b8e09ad02f2f6e841881ae567fb84a29
   m_configObjects: {}
