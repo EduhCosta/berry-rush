@@ -606,6 +606,81 @@ PrefabInstance:
       objectReference: {fileID: 1906211649}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c0347d881d3954ba91b4f1616329db, type: 3}
+--- !u!1 &943624721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3602714534520667305, guid: 36c0347d881d3954ba91b4f1616329db,
+    type: 3}
+  m_PrefabInstance: {fileID: 943624720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1171853739
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 920.6178
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 540.6952
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -40.822495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656926501875903248, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145393170698178601, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_Name
+      value: as_Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7a783df17656b644847759c3bc91efe, type: 3}
 --- !u!1 &1179531583
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +693,7 @@ GameObject:
   - component: {fileID: 1179531587}
   - component: {fileID: 1179531586}
   - component: {fileID: 1179531585}
+  - component: {fileID: 1179531588}
   m_Layer: 5
   m_Name: btn_Banana
   m_TagString: Untagged
@@ -689,7 +765,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1179531586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 943624721}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1179531586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,7 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -728,6 +816,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179531583}
   m_CullTransparentMesh: 1
+--- !u!114 &1179531588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179531583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: RaceFortress
 --- !u!1 &1196791879
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +841,7 @@ GameObject:
   - component: {fileID: 1196791883}
   - component: {fileID: 1196791882}
   - component: {fileID: 1196791881}
+  - component: {fileID: 1196791884}
   m_Layer: 5
   m_Name: btn_Guarana
   m_TagString: Untagged
@@ -811,7 +913,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1196791882}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 943624721}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1196791882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -850,6 +964,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196791879}
   m_CullTransparentMesh: 1
+--- !u!114 &1196791884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196791879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: RaceFortress
 --- !u!224 &1267737542 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3602714534520667309, guid: 36c0347d881d3954ba91b4f1616329db,
@@ -880,6 +1007,7 @@ GameObject:
   - component: {fileID: 1507713662}
   - component: {fileID: 1507713661}
   - component: {fileID: 1507713660}
+  - component: {fileID: 1507713663}
   m_Layer: 5
   m_Name: btn_Pineapple
   m_TagString: Untagged
@@ -951,7 +1079,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1507713661}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 943624721}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1507713661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,7 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -990,6 +1130,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507713658}
   m_CullTransparentMesh: 1
+--- !u!114 &1507713663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507713658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: RaceFortress
 --- !u!1 &1519653038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,7 +1370,7 @@ Transform:
   m_GameObject: {fileID: 1647315043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.936689, y: 0.3449504, z: 7.936689}
+  m_LocalScale: {x: 100, y: 5, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1716,6 +1869,7 @@ GameObject:
   - component: {fileID: 1906211651}
   - component: {fileID: 1906211650}
   - component: {fileID: 1906211649}
+  - component: {fileID: 1906211652}
   m_Layer: 5
   m_Name: btn_Apple
   m_TagString: Untagged
@@ -1801,7 +1955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1809,8 +1963,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1826,3 +1980,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906211647}
   m_CullTransparentMesh: 1
+--- !u!114 &1906211652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906211647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: RaceFortress
