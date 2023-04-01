@@ -308,6 +308,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SphereCollider: {fileID: 9203618263894593599}
+  AccelerateInputs:
+    m_Name: Accelerate Inputs
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a0f8b43a-76bf-4d52-914e-de4f54300bd8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  HandbrakeInputs:
+    m_Name: Handbrake Inputs
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e79889ce-62ba-4b11-830d-52326ad385bc
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  SteeringInputs:
+    m_Name: Steering Inputs
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3796b85e-dc80-4872-a730-9653c8312c40
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  actions: {fileID: -944628639613478452, guid: 16cfad5c497860448a73a372dbb3e35c, type: 3}
   Acceleration: 80
   Steering: 30
   Gravity: 10
