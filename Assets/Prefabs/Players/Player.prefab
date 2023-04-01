@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9203618263958595855}
   - component: {fileID: 9203618263958596080}
+  - component: {fileID: 7424147980598579593}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -111,6 +112,18 @@ MonoBehaviour:
   PlayerName: Thaynan
   _playerId: 
   _cartWidth: 0
+--- !u!114 &7424147980598579593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203618263958595854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6934f3e6de81b994e91c6be0a721db3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9203618264135550310
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@
             "id": "7c35983e-1506-4229-9009-42a87b557783",
             "actions": [
                 {
-                    "name": "Handbrake/Drift",
+                    "name": "Handbrake",
                     "type": "Button",
                     "id": "f83f75e0-5bee-42a2-a113-afacbef351bb",
                     "expectedControlType": "Button",
@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Accelaration",
+                    "name": "Acceleration",
                     "type": "Value",
                     "id": "e7f532be-04ba-4b6f-83bd-04f9ea780314",
                     "expectedControlType": "Axis",
@@ -41,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Handbrake/Drift",
+                    "action": "Handbrake",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -52,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Handbrake/Drift",
+                    "action": "Handbrake",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -63,7 +63,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelaration",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -74,7 +74,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelaration",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -85,7 +85,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelaration",
+                    "action": "Acceleration",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -96,7 +96,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelaration",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -107,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelaration",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -118,7 +118,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelaration",
+                    "action": "Acceleration",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -129,7 +129,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelaration",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -140,7 +140,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Accelaration",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
