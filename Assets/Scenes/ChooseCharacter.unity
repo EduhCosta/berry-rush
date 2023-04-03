@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -454,6 +454,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 467690259296857302, guid: 36c0347d881d3954ba91b4f1616329db,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.00012207
+      objectReference: {fileID: 0}
+    - target: {fileID: 467690259296857302, guid: 36c0347d881d3954ba91b4f1616329db,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035
+      objectReference: {fileID: 0}
     - target: {fileID: 3602714533264841800, guid: 36c0347d881d3954ba91b4f1616329db,
         type: 3}
       propertyPath: m_IsActive
@@ -572,7 +582,12 @@ PrefabInstance:
     - target: {fileID: 3894842633492132534, guid: 36c0347d881d3954ba91b4f1616329db,
         type: 3}
       propertyPath: m_text
-      value: Pineapple
+      value: Choose
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894842633492132534, guid: 36c0347d881d3954ba91b4f1616329db,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3894842633492132534, guid: 36c0347d881d3954ba91b4f1616329db,
         type: 3}
@@ -588,6 +603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor.r
       value: 0.9960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894842633492132534, guid: 36c0347d881d3954ba91b4f1616329db,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3894842633492132534, guid: 36c0347d881d3954ba91b4f1616329db,
         type: 3}
@@ -612,6 +632,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 943624720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &943624722 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3894842633492132534, guid: 36c0347d881d3954ba91b4f1616329db,
+    type: 3}
+  m_PrefabInstance: {fileID: 943624720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1171853739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -766,16 +798,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 943624721}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1267737543}
+        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
+        m_MethodName: changeTitle
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Banana
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1179531586
@@ -914,16 +946,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 943624721}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1267737543}
+        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
+        m_MethodName: changeTitle
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Guarana
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1196791882
@@ -983,6 +1015,19 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 943624720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1267737543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943624721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4023ab4c2d104a459ce2ef4f62991d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameCharacter: {fileID: 943624722}
 --- !u!114 &1465475149 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6017655176219211646, guid: 36c0347d881d3954ba91b4f1616329db,
@@ -1080,16 +1125,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 943624721}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1267737543}
+        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
+        m_MethodName: changeTitle
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Pineapple
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1507713661
@@ -1941,7 +1986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1906211650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1267737543}
+        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
+        m_MethodName: changeTitle
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Apple
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1906211650
 MonoBehaviour:
   m_ObjectHideFlags: 0
