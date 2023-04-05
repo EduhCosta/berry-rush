@@ -189,7 +189,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
+                    "name": "1D Axis Arrows",
                     "id": "51b651c8-458b-40d4-98d7-b62e289e2e3c",
                     "path": "1DAxis",
                     "interactions": "",
@@ -220,34 +220,39 @@
                     "action": "SteeringAngle",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "teste",
-            "id": "df3ba4e3-3c9a-48a2-a9fd-056110d07c0a",
-            "actions": [
+                },
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "34e0312e-36e2-408f-9e11-f790db203027",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "a19c3ef6-59e1-4dc6-ab6c-cf3a6afff20a",
-                    "path": "<HID::MY-POWER CO.,LTD. 2In1 USB Joystick>/button2",
+                    "name": "1D Axis WASD",
+                    "id": "c8500ca8-98b7-4238-8bc9-f8a521a8588f",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
+                    "action": "SteeringAngle",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "dba1414f-ee85-47c4-8478-124c414109dc",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SteeringAngle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "c7636c23-b7ca-4c81-97ed-583977e9367b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SteeringAngle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
