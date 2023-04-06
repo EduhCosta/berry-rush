@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AI
   - Checkpoint
+  - SoundManager
   layers:
   - Default
   - TransparentFX
