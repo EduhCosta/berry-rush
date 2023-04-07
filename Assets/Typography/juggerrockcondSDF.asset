@@ -162,14 +162,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: juggerrockcond SDF
+  m_Name: juggerrockcondSDF
   m_EditorClassIdentifier: 
   hashCode: 808073322
   material: {fileID: -4088654769233748844}
   materialHashCode: -699279222
   m_Version: 1.1.0
   m_SourceFontFileGUID: be8d0eda1c099d44db5e05554242ef1b
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: be8d0eda1c099d44db5e05554242ef1b, type: 3}
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: be8d0eda1c099d44db5e05554242ef1b,
+    type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:

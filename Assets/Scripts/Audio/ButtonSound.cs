@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class ButtonSound : MonoBehaviour
 {
-    public string soundName;
+    [SerializeField] public string soundName;
 
     public void PlaySound()
     {

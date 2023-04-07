@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     {
         masterSlider.value = PlayerPrefs.GetFloat("Master");
         fxSlider.value = PlayerPrefs.GetFloat("FX");
-        // musicaSlider.value = PlayerPrefs.GetFloat("Musica");
+        musicaSlider.value = PlayerPrefs.GetFloat("Musicas");
     }
     
     public void VolumeGame()
@@ -53,8 +53,13 @@ public class AudioManager : MonoBehaviour
     public void MusicaVolume(float volume)
     {
         musicaVolume = volume;
-        AudioListener.volume = musicaVolume;
+        
+        GameObject[] Fxs = GameObject.FindGameObjectsWithTag("Musicas");
+        for (int i = 0; i < Fxs.Length; i++)
+        {
+            Fxs[i].GetComponent<AudioSource>().volume = musicaVolume;
+        }
 
-        PlayerPrefs.SetFloat("Musica", musicaVolume);
+        PlayerPrefs.SetFloat("Musicas", musicaVolume);
     }
 }
