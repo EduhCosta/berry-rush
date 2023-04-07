@@ -1011,6 +1011,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13197c3ec7a9dd44ade803120c8ddc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: 0
+  fxVolume: 0
+  musicaVolume: 0
+  masterSlider: {fileID: 0}
+  fxSlider: {fileID: 0}
+  musicaSlider: {fileID: 0}
 --- !u!114 &677698216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,6 +1095,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Desmute
     clip: {fileID: 8300000, guid: 68d38e7d3fdf4e7459c64987d1e48f53, type: 3}
+    volume: 0.1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Slider
+    clip: {fileID: 8300000, guid: 5e13d7ad324799c4ca7db6b2fa4731ed, type: 3}
     volume: 0.1
     pitch: 0
     loop: 0
@@ -2140,6 +2152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145393170698178601, guid: e7a783df17656b644847759c3bc91efe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Musicas
       objectReference: {fileID: 0}
     - target: {fileID: 8674649353295893199, guid: e7a783df17656b644847759c3bc91efe,
         type: 3}
