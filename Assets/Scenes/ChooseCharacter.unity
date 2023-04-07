@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -462,7 +462,7 @@ PrefabInstance:
     - target: {fileID: 467690259296857302, guid: 36c0347d881d3954ba91b4f1616329db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000061035
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3602714533264841800, guid: 36c0347d881d3954ba91b4f1616329db,
         type: 3}
@@ -632,18 +632,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 943624720}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &943624722 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3894842633492132534, guid: 36c0347d881d3954ba91b4f1616329db,
-    type: 3}
-  m_PrefabInstance: {fileID: 943624720}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1171853739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -860,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: RaceFortress
+  SceneName: CutsceneFortress
 --- !u!1 &1196791879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: RaceFortress
+  SceneName: CutsceneFortress
 --- !u!224 &1267737542 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3602714534520667309, guid: 36c0347d881d3954ba91b4f1616329db,
@@ -1027,7 +1015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4023ab4c2d104a459ce2ef4f62991d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameCharacter: {fileID: 943624722}
 --- !u!114 &1465475149 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6017655176219211646, guid: 36c0347d881d3954ba91b4f1616329db,
@@ -1187,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: RaceFortress
+  SceneName: CutsceneFortress
 --- !u!1 &1519653038
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,4 +2036,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: RaceFortress
+  SceneName: CutsceneFortress
