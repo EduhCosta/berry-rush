@@ -76,4 +76,9 @@ public class AICartController : MonoBehaviour
             Time.deltaTime * 5f
         );
     }
+
+    public void OnBoost(float boostPower)
+    {
+        _currentSpeed = boostPower + Acceleration;
+    }
 }

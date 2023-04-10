@@ -132,12 +132,17 @@ public class SphereCartController : MonoBehaviour
         {
             // Boost 
             Debug.Log($"BOOST {_driftPower}");
-            _currentSpeed = _driftPower + Acceleration; // Setting to control the boost
+            OnBoost(_driftPower); // Setting to control the boost
             _isDrifting = false;
         }
     }
 
-   private void OnAccelerate(InputAction.CallbackContext context)
+    public void OnBoost(float boostPower)
+    {
+        _currentSpeed = boostPower + Acceleration;
+    }
+
+    private void OnAccelerate(InputAction.CallbackContext context)
     {
         if(context.phase.ToString().ToLower() == "performed") {
             _accelerateButtonValue = context.ReadValue<float>();
