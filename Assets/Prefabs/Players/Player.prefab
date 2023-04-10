@@ -60,8 +60,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 2
 --- !u!1 &9203618263958595854
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e85a82ceb42449cac9bc39ebfbe03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Thaynan
+  PlayerName: Developer
   _playerId: 
   _cartWidth: 0
 --- !u!1 &9203618264135550310
@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9203618264135550313
 Transform:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.763617, g: 0.78950596, b: 0.8301887, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -169,7 +169,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 200
+  far clip plane: 10000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 9203618264384512268}
   m_Layer: 0
   m_Name: Kart
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,35 +308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SphereCollider: {fileID: 9203618263894593599}
-  AccelerateInputs:
-    m_Name: Accelerate Inputs
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a0f8b43a-76bf-4d52-914e-de4f54300bd8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  HandbrakeInputs:
-    m_Name: Handbrake Inputs
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e79889ce-62ba-4b11-830d-52326ad385bc
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  SteeringInputs:
-    m_Name: Steering Inputs
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 3796b85e-dc80-4872-a730-9653c8312c40
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   actions: {fileID: -944628639613478452, guid: 16cfad5c497860448a73a372dbb3e35c, type: 3}
-  Acceleration: 80
+  Acceleration: 160
   Steering: 30
   Gravity: 10
   BoostAcceleration: 60
