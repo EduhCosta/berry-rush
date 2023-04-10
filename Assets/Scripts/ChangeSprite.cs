@@ -9,6 +9,7 @@ public class ChangeSprite : MonoBehaviour
     public Sprite soundOffImage;
     public Button button;
     private bool isOn = true;
+    
 
     void Start()
     {
