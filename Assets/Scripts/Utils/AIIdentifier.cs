@@ -44,4 +44,15 @@ public static class AIIdentifier
 
         return null;
     }
+
+    public static CartGameSettings GetCartGameSettings(Collider collider)
+    {
+        if (IsAI(collider))
+        {
+            GameObject parent = collider.gameObject.transform.parent.gameObject;
+            return parent.GetComponent<CartGameSettings>();
+        }
+
+        return null;
+    }
 }

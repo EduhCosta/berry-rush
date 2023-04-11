@@ -36,4 +36,15 @@ public static class PlayerIdentifier
         return null;
     }
 
+    public static CartGameSettings GetCartGameSettings(Collider collider)
+    {
+        if (IsPlayer(collider))
+        {
+            GameObject parent = collider.gameObject.transform.parent.gameObject;
+            return parent.GetComponent<CartGameSettings>();
+        }
+
+        return null;
+    }
+
 }
