@@ -93,9 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerUp: {fileID: 2927626334522039395}
-  PercentagePosition1: 0
-  PercentagePosition2: 0
-  PercentagePosition3: 0
+  PercentagePosition1: 50
+  PercentagePosition2: 50
+  PercentagePosition3: 50
   PercentagePosition4: 50
   PercentagePosition5: 0
   PercentagePosition6: 0
