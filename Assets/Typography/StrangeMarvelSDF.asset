@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: StrangeMarvelSDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1297321336
   material: {fileID: 258748643316210877}
-  materialHashCode: 0
+  materialHashCode: 1234669864
   m_Version: 1.1.0
   m_SourceFontFileGUID: 28c3a9a0b49210a4ea1b320b1bfdd593
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 28c3a9a0b49210a4ea1b320b1bfdd593,
@@ -40,7 +40,7 @@ MonoBehaviour:
     m_SubscriptSize: 0.5
     m_UnderlineOffset: -6.2734375
     m_UnderlineThickness: 3.2226562
-    m_StrikethroughOffset: 0
+    m_StrikethroughOffset: 24
     m_StrikethroughThickness: 3.2226562
     m_TabWidth: 18
   m_GlyphTable:
@@ -1641,9 +1641,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

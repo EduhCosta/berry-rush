@@ -6,11 +6,7 @@ using UnityEngine.InputSystem;
 public class SphereCartController : MonoBehaviour
 {
     [SerializeField] public Rigidbody SphereCollider;
-
-    [Header("Joystick Inputs")]
-    [SerializeField] public InputActionAsset actions;
     
-
     [Header("Cart properties")]
     [SerializeField] public float Acceleration = 30f;
     [SerializeField] public float Steering = 30f;
@@ -36,14 +32,6 @@ public class SphereCartController : MonoBehaviour
     private float _timeToAddForce;
     private float _newSpeed;
 
-    void Awake()
-    {
-        actions.FindActionMap("Gameplay").FindAction("Accelerate").performed += OnAccelerate;
-        actions.FindActionMap("Gameplay").FindAction("Accelerate").canceled += OnAccelerate;
-        actions.FindActionMap("Gameplay").FindAction("SteeringAngle").performed += OnSteering;
-        actions.FindActionMap("Gameplay").FindAction("SteeringAngle").canceled += OnSteering;
-    }
-
     private void OnDrawGizmos()
     {
         // Draws a 5 unit long red line in front of the object
@@ -55,12 +43,14 @@ public class SphereCartController : MonoBehaviour
 
     public void OnEnable()
     {
-        actions.FindActionMap("Gameplay").Enable();
+        PlayerInputControllerActions.Accelerate += OnAccelerate;
+        PlayerInputControllerActions.Steering += OnSteering;
     }
 
     public void OnDisable()
     {
-        actions.FindActionMap("Gameplay").Disable();
+        PlayerInputControllerActions.Accelerate -= OnAccelerate;
+        PlayerInputControllerActions.Steering -= OnSteering;
     }
 
     void Update()
@@ -142,26 +132,13 @@ public class SphereCartController : MonoBehaviour
         _currentSpeed = boostPower + Acceleration;
     }
 
-    private void OnAccelerate(InputAction.CallbackContext context)
+    private void OnAccelerate(float value)
     {
-        if(context.phase.ToString().ToLower() == "performed") {
-            _accelerateButtonValue = context.ReadValue<float>();
-        }else if(context.phase.ToString().ToLower() == "canceled")
-        {
-            _accelerateButtonValue = 0;
-        }
+        _accelerateButtonValue = value;
         
     }
-    private void OnSteering(InputAction.CallbackContext context)
+    private void OnSteering(float value)
     {
-        if (context.phase.ToString().ToLower() == "performed")
-        {
-            _steeringButtonValue = context.ReadValue<float>();
-        }
-        else if (context.phase.ToString().ToLower() == "canceled")
-        {
-            _steeringButtonValue = 0;
-        }
-
+        _steeringButtonValue = value;
     }
 }

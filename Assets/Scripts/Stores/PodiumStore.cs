@@ -7,6 +7,22 @@ using UnityEngine;
 public class PodiumStore : MonoBehaviour
 {
     public List<Podium> positions = new();
+    public static PodiumStore Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogError("More than one instance of a PodiumStore singleton");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void OnEnable()
     {
@@ -43,5 +59,10 @@ public class PodiumStore : MonoBehaviour
         tmpSort = tmpSort == 0 ? tmpSort += before.timeStamp.CompareTo(after.timeStamp) : tmpSort;
 
         return tmpSort;
+    }
+
+    public int GetCurrentPosition(string playerId)
+    {
+        return positions.FindIndex(position => position.cart.GetPlayerId() == playerId) + 1;
     }
 }
