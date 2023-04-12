@@ -315,6 +315,28 @@
                     "action": "PowerUpTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81eb0135-f300-468e-98a8-a21528cd84fe",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PowerUpTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7185e87-9b28-4a07-be7e-6a1c222ab798",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PowerUpTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
