@@ -148,6 +148,12 @@ public class SphereCartController : MonoBehaviour
         _timeKeepingAcceleration = time;
     }
 
+    public void OnStun(float time)
+    {
+        _timeBoost = 0;
+        _timeKeepingAcceleration = time;
+    }
+
     private void OnAccelerate(float value)
     {
         _accelerateButtonValue = value;

@@ -1,4 +1,6 @@
 ﻿using System;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class PowerUp: MonoBehaviour
@@ -13,6 +15,7 @@ public class PowerUp: MonoBehaviour
     [SerializeField] private float _lifeTime;
     [Tooltip("If true the powerUp is not handled by user, this tigger right after selected")]
     [SerializeField] public bool IsHotTriggered;
+    [SerializeField] private Mesh _DamageRange;
 
     [Header("Effects")]
     [SerializeField] private float _velocityToAdd;
@@ -26,7 +29,7 @@ public class PowerUp: MonoBehaviour
     private bool _isBullet;
 
     // Not bullet
-    private Mesh _DamageRange;
+    // private Mesh _DamageRange;
 
     // IsBullet
     private float _bulletVelocity;
@@ -58,5 +61,36 @@ public class PowerUp: MonoBehaviour
     {
         SphereCartController cartController = cart.GetComponentInChildren<SphereCartController>();
         if (_velocityToAdd != 0) cartController.OnBoost(_velocityToAdd, _lifeTime);
+        if (_DamageRange != null)
+        {
+            GameObject collider = GenerateCollider(cart);
+            AddMeshScripts(collider);
+        }
+    }
+
+    private GameObject GenerateCollider(GameObject player)
+    {
+        GameObject cart = PlayerIdentifier.GetKartObject(player);
+        GameObject collider = new GameObject();
+        collider.name = _name + "_Collider";
+        collider.transform.position = cart.transform.position;
+        MeshCollider meshCollider = collider.AddComponent<MeshCollider>();
+        meshCollider.sharedMesh = _DamageRange;
+        meshCollider.convex = true;
+        meshCollider.isTrigger = true;
+        collider.transform.parent = cart.transform;
+        collider.transform.rotation = new Quaternion();
+
+        return collider;
+    }
+
+    private void AddMeshScripts(GameObject collider)
+    {
+        if (_id == 3) // Pesticide
+        {
+            Pesticide p = collider.AddComponent<Pesticide>();
+            p.timeValue = _lifeTime;
+            p.target = _target;
+        }
     }
 }
