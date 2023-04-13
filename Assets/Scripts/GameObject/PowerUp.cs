@@ -11,6 +11,8 @@ public class PowerUp: MonoBehaviour
     [SerializeField] private LayerMask _target;
     [Tooltip("Time to end the effects of powerup in seconds")]
     [SerializeField] private float _lifeTime;
+    [Tooltip("If true the powerUp is not handled by user, this tigger right after selected")]
+    [SerializeField] public bool IsHotTriggered;
 
     [Header("Effects")]
     [SerializeField] private float _velocityToAdd;
