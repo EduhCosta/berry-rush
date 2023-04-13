@@ -31,6 +31,8 @@ public class SphereCartController : MonoBehaviour
     // Loop variables
     private float _timeToAddForce;
     private float _newSpeed;
+    private float _timeKeepingAcceleration;
+    private float _timeBoost;
 
     private void OnDrawGizmos()
     {
@@ -58,7 +60,15 @@ public class SphereCartController : MonoBehaviour
         // Follow sphere
         transform.position = SphereCollider.transform.position - new Vector3(0, 0.4f, 0);
         // Input Accelerate
-        _speed = _accelerateButtonValue * Acceleration;
+        if (_timeKeepingAcceleration <= 0)
+        {
+            _speed = _accelerateButtonValue * Acceleration;
+        }
+        else
+        {
+            _speed = _accelerateButtonValue * _timeBoost;
+            _timeKeepingAcceleration -= Time.deltaTime;
+        }
         // Input Steer
         _rotation = _steeringButtonValue * Steering;
         // Input Break
@@ -89,7 +99,7 @@ public class SphereCartController : MonoBehaviour
         // Run
         SphereCollider.AddForce(transform.forward * _currentSpeed, ForceMode.Acceleration);
 
-        //Gravity
+        // Gravity
         SphereCollider.AddForce(Vector3.down * Gravity, ForceMode.Acceleration);
 
         // Steering
@@ -130,6 +140,12 @@ public class SphereCartController : MonoBehaviour
     public void OnBoost(float boostPower)
     {
         _currentSpeed = boostPower + Acceleration;
+    }
+
+    public void OnBoost(float boostPower, float time)
+    {
+        _timeBoost = boostPower + Acceleration;
+        _timeKeepingAcceleration = time;
     }
 
     private void OnAccelerate(float value)
