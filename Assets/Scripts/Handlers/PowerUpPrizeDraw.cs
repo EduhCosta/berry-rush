@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PowerUpPrizeDraw : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     private List<PowerUpPercentaged> _validList;
     private int _currentPlayerPosition = 4;
+    private GameObject _cart;
+    private PowerUp _pu;
 
     private void OnEnable()
     {
@@ -27,6 +31,8 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     private void StartPrizeDraw(GameObject obj, int position)
     {
+        // Debug.Log(obj);
+        _cart = obj;
         _currentPlayerPosition = position;
 
         _validList = PowerUpPercentageds.FindAll(pw => pw.GetPercentageByPosition(position) > 0);
@@ -46,13 +52,14 @@ public class PowerUpPrizeDraw : MonoBehaviour
         System.Random rnd = new System.Random();
         int random = rnd.Next(1, 100);
 
-        Debug.Log(random);
+        // Debug.Log(random);
 
         foreach (PowerUpPercentaged item in _validList)
         {
             acc += item.GetPercentageByPosition(_currentPlayerPosition);
             if (random <= acc)
             {
+                _pu = item.PowerUp;
                 StartCoroutine(SelectPowerUp(item.PowerUp));
                 return;
             }
@@ -61,7 +68,7 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     IEnumerator SelectPowerUp(PowerUp powerUp)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3); //Time to keep sorting
 
         PrizeDrawAnimator.SetInteger("PowerUpId", powerUp.GetId());
         PrizeDrawAnimator.SetBool("IsSorting", false);
@@ -69,6 +76,7 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     private void ConsumePowerUp()
     {
+        _pu.Run(_cart);
         PrizeDrawAnimator.SetTrigger("UsePoweUp");
     }
 

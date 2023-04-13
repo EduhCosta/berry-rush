@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 439869981}
   - component: {fileID: 439869980}
   - component: {fileID: 439869979}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 9203618263894593598}
   - component: {fileID: 9203618263894593568}
   - component: {fileID: 9203618263894593599}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9203618263958595855}
   - component: {fileID: 9203618263958596080}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 9203618264135550312}
   - component: {fileID: 9203618264135550311}
   - component: {fileID: 1562384117181592510}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9203618264319365193}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9203618264384512264}
   - component: {fileID: 9203618264384512268}
-  m_Layer: 0
+  - component: {fileID: 2101538481}
+  m_Layer: 3
   m_Name: Kart
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -407,12 +408,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SphereCollider: {fileID: 9203618263894593599}
-  actions: {fileID: -944628639613478452, guid: 16cfad5c497860448a73a372dbb3e35c, type: 3}
   Acceleration: 160
   Steering: 30
   Gravity: 10
   BoostAcceleration: 60
   CurrentSpeed: 0
+--- !u!114 &2101538481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203618264384512263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ccee9c9a5e01984e964aebc469e350d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 16cfad5c497860448a73a372dbb3e35c, type: 3}
 --- !u!1001 &9203618262712607424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -485,25 +498,55 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.27
       objectReference: {fileID: 0}
+    - target: {fileID: -4819223349682164798, guid: 85979a11b24914ff995ed0b1621ba334,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -170070253108228450, guid: 85979a11b24914ff995ed0b1621ba334,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 894303157822137741, guid: 85979a11b24914ff995ed0b1621ba334,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85979a11b24914ff995ed0b1621ba334,
         type: 3}
       propertyPath: m_Name
       value: raceCarOrange
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85979a11b24914ff995ed0b1621ba334,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1278253906873026316, guid: 85979a11b24914ff995ed0b1621ba334,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.13
       objectReference: {fileID: 0}
+    - target: {fileID: 1389085389621415177, guid: 85979a11b24914ff995ed0b1621ba334,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1615017074630225307, guid: 85979a11b24914ff995ed0b1621ba334,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045601653604734346, guid: 85979a11b24914ff995ed0b1621ba334,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204674477291675245, guid: 85979a11b24914ff995ed0b1621ba334,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85979a11b24914ff995ed0b1621ba334, type: 3}
