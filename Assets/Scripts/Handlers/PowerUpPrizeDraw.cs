@@ -72,6 +72,12 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
         PrizeDrawAnimator.SetInteger("PowerUpId", powerUp.GetId());
         PrizeDrawAnimator.SetBool("IsSorting", false);
+
+        if (powerUp.IsHotTriggered)
+        {
+            yield return new WaitForSeconds(1);
+            ConsumePowerUp();
+        }
     }
 
     private void ConsumePowerUp()
