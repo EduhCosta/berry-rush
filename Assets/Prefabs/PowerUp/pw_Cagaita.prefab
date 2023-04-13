@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ac51955c9ffaf4aacb69d34517160e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 2
+  _id: 8
   _name: Cagaita
   _thumbnail: {fileID: 2800000, guid: 4b3b3e78127599d4ca2c0379a620ce69, type: 3}
 --- !u!1 &5591800686150177191
@@ -93,11 +93,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerUp: {fileID: 2927626334522039395}
-  PercentagePosition1: 50
-  PercentagePosition2: 50
-  PercentagePosition3: 50
-  PercentagePosition4: 50
-  PercentagePosition5: 0
+  PercentagePosition1: 10
+  PercentagePosition2: 10
+  PercentagePosition3: 10
+  PercentagePosition4: 5
+  PercentagePosition5: 5
   PercentagePosition6: 0
   PercentagePosition7: 0
   PercentagePosition8: 0
