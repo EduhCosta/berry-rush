@@ -25,6 +25,28 @@ public static class PlayerIdentifier
         return null;
     }
 
+    public static SphereCartController GetKart(GameObject obj)
+    {
+        if (IsPlayer(obj))
+        {
+            GameObject cart = obj.gameObject.transform.GetChild(0).gameObject;
+            return cart.GetComponent<SphereCartController>();
+        }
+
+        return null;
+    }
+
+    public static GameObject GetKartObject(GameObject parent)
+    {
+        if (IsPlayer(parent))
+        {
+            GameObject obj = parent.gameObject.transform.GetChild(0).gameObject;
+            return obj;
+        }
+
+        return null;
+    }
+
     public static GameObject GetPlayerGameObject(Collider collider)
     {
         if (IsPlayer(collider))
