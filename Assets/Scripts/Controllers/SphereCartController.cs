@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SphereCartController : MonoBehaviour
+public class SphereCartController : IKartController
 {
     [SerializeField] public Rigidbody SphereCollider;
     
@@ -162,5 +162,10 @@ public class SphereCartController : MonoBehaviour
     private void OnSteering(float value)
     {
         _steeringButtonValue = value;
+    }
+
+    public void AddForce(float force, Vector3 direction)
+    {
+        SphereCollider.AddForce(force * Time.deltaTime * direction);
     }
 }

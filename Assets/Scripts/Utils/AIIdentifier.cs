@@ -24,6 +24,19 @@ public static class AIIdentifier
         return null;
     }
 
+    public static AICartController GetAIKart(GameObject obj)
+    {
+        if (IsAI(obj))
+        {
+            var controller = obj.GetComponentInChildren<AICartController>();
+            GameObject parent = obj.transform.parent.gameObject;
+            var parentController = parent.GetComponentInChildren<AICartController>();
+            return controller != null ? controller : parentController;
+        }
+
+        return null;
+    }
+
     public static string GetAIId(GameObject gameObject)
     {
         return gameObject.GetComponentInParent<CartGameSettings>().GetPlayerId();
