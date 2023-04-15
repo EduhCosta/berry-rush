@@ -21,7 +21,7 @@ public class PowerUpPrizeDraw : MonoBehaviour
     private void OnEnable()
     {
         RandomBox.HittingBox += StartPrizeDraw;
-        PlayerInputControllerActions.ConsumePowerUp += ConsumePowerUp;
+        PlayerInputControllerActions.ConsumePowerUp += OnConsumePowerUp;
     }
 
     private void OnDisable()
@@ -76,14 +76,13 @@ public class PowerUpPrizeDraw : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (powerUp.IsHotTriggered)
         {
-            ConsumePowerUp();
+            OnConsumePowerUp();
         }
     }
-
-    private void ConsumePowerUp()
+    
+    private void OnConsumePowerUp()
     {
         _pu.Run(_cart);
         PrizeDrawAnimator.SetTrigger("UsePoweUp");
     }
-
 }

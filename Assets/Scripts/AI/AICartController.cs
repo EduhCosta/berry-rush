@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AICartController : MonoBehaviour
+public class AICartController : IKartController
 {
     [SerializeField] public Rigidbody SphereCollider;
 
@@ -91,9 +91,20 @@ public class AICartController : MonoBehaviour
         _currentSpeed = boostPower + Acceleration;
     }
 
+    public void OnBoost(float boostPower, float time)
+    {
+        _timeBoost = boostPower + Acceleration;
+        _timeKeepingAcceleration = time;
+    }
+
     public void OnStun(float time)
     {
         _timeBoost = 0;
         _timeKeepingAcceleration = time;
+    }
+
+    public void AddForce(float force, Vector3 direction)
+    {
+        SphereCollider.AddForce(force * Time.deltaTime * direction);
     }
 }
