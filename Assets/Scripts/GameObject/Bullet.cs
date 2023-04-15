@@ -15,14 +15,17 @@ public class Bullet : MonoBehaviour
     public float TargetForce;
     public Vector3 TargetForceDirection;
     public float LifeTime;
+    public float StunTime;
 
     private Rigidbody _rb;
     private GameObject _gb;
     private Vector3 _direction;
+    private float _timer;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _timer = LifeTime;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,13 +39,21 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        OnGoingUntilHit();
+        if (_timer >= 0)
+        {
+            OnGoingUntilHit();
+            _timer -= Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnGoingUntilHit()
     {
         _direction = TriggerElement.transform.forward;
-        _rb.AddForce(_direction * Velocity * Time.deltaTime, ForceMode.Acceleration);
+        _rb.AddForce(_direction * Velocity, ForceMode.Acceleration);
     }
 
     private void RunEffect()
@@ -65,11 +76,11 @@ public class Bullet : MonoBehaviour
 
         if (IsFreezingFunctions)
         {
-            _goKart.OnStun(LifeTime);
+            _goKart.OnStun(StunTime);
         }
         if (VelocityToAdd != 0)
         {
-            _goKart.OnBoost(VelocityToAdd, LifeTime);
+            _goKart.OnBoost(VelocityToAdd, StunTime);
         }
         if (TargetForce > 0)
         {
@@ -86,11 +97,11 @@ public class Bullet : MonoBehaviour
 
         if (IsFreezingFunctions)
         {
-            _goKart.OnStun(LifeTime);
+            _goKart.OnStun(StunTime);
         }
         if (VelocityToAdd != 0)
         {
-            _goKart.OnBoost(VelocityToAdd, LifeTime);
+            _goKart.OnBoost(VelocityToAdd, StunTime);
         }
         if (TargetForce > 0)
         {

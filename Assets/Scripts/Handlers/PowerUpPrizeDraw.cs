@@ -27,6 +27,7 @@ public class PowerUpPrizeDraw : MonoBehaviour
     private void OnDisable()
     {
         RandomBox.HittingBox -= StartPrizeDraw;
+        PlayerInputControllerActions.ConsumePowerUp -= OnConsumePowerUp;
     }
 
     private void StartPrizeDraw(GameObject obj, int position)
