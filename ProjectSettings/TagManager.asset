@@ -12,13 +12,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Track
   - MiniMapElement
-  - 
-  - 
+  - AI
+  - Obstacle
   - 
   - 
   - 

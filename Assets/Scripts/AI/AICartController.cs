@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AICartController : MonoBehaviour
+public class AICartController : IKartController
 {
     [SerializeField] public Rigidbody SphereCollider;
 
@@ -23,7 +23,8 @@ public class AICartController : MonoBehaviour
     // Loop variables
     private float _timeToAddForce;
     private float _newSpeed;
-
+    private float _timeKeepingAcceleration;
+    private float _timeBoost;
     private void OnDrawGizmos()
     {
         // Draws a 5 unit long line in front of the object
@@ -39,7 +40,15 @@ public class AICartController : MonoBehaviour
         transform.position = SphereCollider.transform.position - new Vector3(0, 0.4f, 0);
         // Input Accelerate
         float accelerate = GetComponent<AIInputController>().Accelerate;
-        _speed = accelerate * Acceleration;
+        if (_timeKeepingAcceleration <= 0)
+        {
+            _speed = accelerate * Acceleration;
+        }
+        else
+        {
+            _speed = accelerate * _timeBoost;
+            _timeKeepingAcceleration -= Time.deltaTime;
+        }
         // Input Steer
         float direction = GetComponent<AIInputController>().Direction;
         _rotation = direction  * Steering;
@@ -80,5 +89,22 @@ public class AICartController : MonoBehaviour
     public void OnBoost(float boostPower)
     {
         _currentSpeed = boostPower + Acceleration;
+    }
+
+    public void OnBoost(float boostPower, float time)
+    {
+        _timeBoost = boostPower + Acceleration;
+        _timeKeepingAcceleration = time;
+    }
+
+    public void OnStun(float time)
+    {
+        _timeBoost = 0;
+        _timeKeepingAcceleration = time;
+    }
+
+    public void AddForce(float force, Vector3 direction)
+    {
+        SphereCollider.AddForce(force * Time.deltaTime * direction);
     }
 }

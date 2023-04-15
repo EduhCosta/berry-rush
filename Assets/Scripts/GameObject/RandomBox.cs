@@ -10,10 +10,10 @@ public class RandomBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (PlayerIdentifier.IsPlayer(other) || AIIdentifier.IsAI(other))
+        if (PlayerIdentifier.IsPlayer(other)) // ToDo: IA getting powerups
         {
             int position = PodiumStore.Instance.GetCurrentPosition(PlayerIdentifier.GetCartGameSettings(other).GetPlayerId());
-            HittingBox(other.gameObject, position);
+            HittingBox(PlayerIdentifier.GetCartGameSettings(other).gameObject, position);
         }
     }
 

@@ -65,4 +65,9 @@ public class PodiumStore : MonoBehaviour
     {
         return positions.FindIndex(position => position.cart.GetPlayerId() == playerId) + 1;
     }
+
+    public GameObject GetPlayerByPosition(int position)
+    {
+        return positions[position - 1].cart.gameObject;
+    }
 }
