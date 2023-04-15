@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class AudioManager : MonoBehaviour
 {
     public float masterVolume, fxVolume, musicaVolume;
     public Slider masterSlider, fxSlider, musicaSlider;
+    public static Action Mute;
 
     private bool audioOn = true;
+
 
     void Start()
     {
@@ -16,7 +20,7 @@ public class AudioManager : MonoBehaviour
         fxSlider.value = PlayerPrefs.GetFloat("FX");
         musicaSlider.value = PlayerPrefs.GetFloat("Musicas");
     }
-    
+
     public void VolumeGame()
     {
         audioOn = !audioOn;
