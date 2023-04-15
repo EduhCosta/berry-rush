@@ -21,6 +21,7 @@ public class PowerUp: MonoBehaviour
     [Header("Bullet Properties")]
     [SerializeField] private bool _isBullet;
     [SerializeField] private float _bulletSpeed;
+    [SerializeField] private float _bulletLifeTime;
     [SerializeField] private Mesh _bulletAspect;
     [SerializeField] private Material _bulletMaterial;
     //[Tooltip("Deinfe the position of power up bullet will go")]
@@ -139,7 +140,8 @@ public class PowerUp: MonoBehaviour
         bl.VelocityToAdd = _velocityToAdd;
         bl.IsFreezingFunctions = _isFreezingFunctions;
         bl.TargetForce = _targeForce;
-        bl.LifeTime = _lifeTime;
+        bl.LifeTime = _bulletLifeTime;
+        bl.StunTime = _lifeTime;
 
         return bullet;
     }
