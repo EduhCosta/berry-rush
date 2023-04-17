@@ -1017,7 +1017,6 @@ MonoBehaviour:
   masterSlider: {fileID: 0}
   fxSlider: {fileID: 0}
   musicaSlider: {fileID: 0}
-  actions: {fileID: 0}
 --- !u!114 &677698216
 MonoBehaviour:
   m_ObjectHideFlags: 0
