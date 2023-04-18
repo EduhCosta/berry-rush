@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519932796}
     m_Modifications:
+    - target: {fileID: 1015721771377489721, guid: b249b67320030ea4381aff872dad6865,
+        type: 3}
+      propertyPath: SceneName
+      value: Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 1817562732223938307, guid: b249b67320030ea4381aff872dad6865,
         type: 3}
       propertyPath: m_Colors.m_NormalColor.b
@@ -144,6 +149,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 0.9411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817562732223938307, guid: b249b67320030ea4381aff872dad6865,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817562732223938307, guid: b249b67320030ea4381aff872dad6865,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817562732223938307, guid: b249b67320030ea4381aff872dad6865,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.50980395
       objectReference: {fileID: 0}
     - target: {fileID: 2434945844613791079, guid: b249b67320030ea4381aff872dad6865,
         type: 3}
@@ -293,6 +313,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b249b67320030ea4381aff872dad6865, type: 3}
+--- !u!1 &378553625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7172731615893010754, guid: b249b67320030ea4381aff872dad6865,
+    type: 3}
+  m_PrefabInstance: {fileID: 378553624}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &519932794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1253,7 +1279,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 378553625}
     - target: {fileID: 3335326663146505838, guid: 45c3963b2abcdb348847359b5b3c676a,
         type: 3}
       propertyPath: m_Name
