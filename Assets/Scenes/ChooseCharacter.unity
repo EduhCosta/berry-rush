@@ -206,6 +206,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1267737542}
     m_Modifications:
+    - target: {fileID: 1015721771377489721, guid: b249b67320030ea4381aff872dad6865,
+        type: 3}
+      propertyPath: SceneName
+      value: Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 1817562732223938307, guid: b249b67320030ea4381aff872dad6865,
         type: 3}
       propertyPath: m_Navigation.m_Mode
@@ -1824,7 +1829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CutsceneFortress
+  SceneName: RaceFortress
 --- !u!114 &1179531589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1988,7 +1993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CutsceneFortress
+  SceneName: RaceFortress
 --- !u!114 &1196791885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,7 +2327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CutsceneFortress
+  SceneName: RaceFortress
 --- !u!114 &1507713664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3532,7 +3537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CutsceneFortress
+  SceneName: RaceFortress
 --- !u!114 &1906211653
 MonoBehaviour:
   m_ObjectHideFlags: 0
