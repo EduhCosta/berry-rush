@@ -25,6 +25,8 @@ public class AICartController : IKartController
     private float _newSpeed;
     private float _timeKeepingAcceleration;
     private float _timeBoost;
+    private bool _isFreezing;
+
     private void OnDrawGizmos()
     {
         // Draws a 5 unit long line in front of the object
@@ -72,18 +74,21 @@ public class AICartController : IKartController
 
     void FixedUpdate()
     {
-        // Run
-        SphereCollider.AddForce(transform.forward * _currentSpeed, ForceMode.Acceleration);
+        if (!_isFreezing)
+        {
+            // Run
+            SphereCollider.AddForce(transform.forward * _currentSpeed, ForceMode.Acceleration);
 
-        //Gravity
-        SphereCollider.AddForce(Vector3.down * Gravity, ForceMode.Acceleration);
+            //Gravity
+            SphereCollider.AddForce(Vector3.down * Gravity, ForceMode.Acceleration);
 
-        // Steering
-        transform.eulerAngles = Vector3.Lerp(
-            transform.eulerAngles,
-            new Vector3(0, transform.eulerAngles.y + _currentRotation, 0),
-            Time.deltaTime * 5f
-        );
+            // Steering
+            transform.eulerAngles = Vector3.Lerp(
+                transform.eulerAngles,
+                new Vector3(0, transform.eulerAngles.y + _currentRotation, 0),
+                Time.deltaTime * 5f
+            );
+        }
     }
 
     public void OnBoost(float boostPower)
@@ -97,10 +102,18 @@ public class AICartController : IKartController
         _timeKeepingAcceleration = time;
     }
 
-    public void OnStun(float time)
+    public void OnStun(float timeToKeepFreezing)
     {
-        _timeBoost = 0;
-        _timeKeepingAcceleration = time;
+        _isFreezing = true;
+        SphereCollider.velocity = Vector3.zero;
+        SphereCollider.angularVelocity = Vector3.zero;
+        StartCoroutine(ResetFreezing(timeToKeepFreezing));
+    }
+
+    IEnumerator ResetFreezing(float timeToKeepFreezing)
+    {
+        yield return new WaitForSeconds(timeToKeepFreezing); // Time to keep stuning
+        _isFreezing = false;
     }
 
     public void AddForce(float force, Vector3 direction)

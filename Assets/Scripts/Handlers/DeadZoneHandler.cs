@@ -19,19 +19,19 @@ public class DeadZoneHandler : MonoBehaviour
             CartGameSettings cart = other.GetComponentInParent<CartGameSettings>();
             string racerId = cart.GetPlayerId();
 
-            DeadZoneHandler_OutOfTrack(racerId);
+            if (AIIdentifier.IsAI(other)) DeadZoneHandler_OutOfTrack(racerId);
 
             CheckpointData[] checkpoints = RaceStorage.Instance.GetCheckpointsByRacer(racerId).ToArray();
-            if (checkpoints.Length < 0) return;
+            if (checkpoints.Length < 0) return; // ToDo: Devemos definir a posição do carro para o início da pista nesse caso
             
             CheckpointData lastCheckpoint =  checkpoints[checkpoints.Length - 1];
-            // Debug.Log(lastCheckpoint.ToString());
+            //Debug.Log(lastCheckpoint.ToString());
 
             RaceCheckpoint raceCheckpoint = RaceStorage.Instance.GetRaceCheckpointsById(lastCheckpoint.checkpointOrder);
-            // Debug.Log(raceCheckpoint.gameObject.transform);
 
             if (PlayerIdentifier.IsPlayer(other))
             {
+                //Debug.Log("Is player");
                 _isPlayer = true;
                 _currentDead = PlayerIdentifier.GetPlayerGameObject(other);
             }
@@ -51,19 +51,24 @@ public class DeadZoneHandler : MonoBehaviour
         //Debug.Log(_lastTransform.position);
 
         GameObject cart = null;
-        Collider collider = null;
+        GameObject collider = null;
         if (_isPlayer) cart = _currentDead.GetComponentInChildren<SphereCartController>().gameObject;
         if (_isAi) cart = _currentDead.GetComponentInChildren<AICartController>().gameObject;
 
-        collider = _currentDead.GetComponentInChildren<Collider>();
+        collider = _currentDead.GetComponentInChildren<SphereCollider>().gameObject;
 
         if (cart == null || collider == null) return;
 
+        // Debug.Log(_lastTransform.position);
+
         cart.transform.position = _lastTransform.position;
         collider.transform.position = _lastTransform.position;
+        cart.transform.forward = _lastTransform.forward;
+        collider.transform.forward = _lastTransform.forward;
 
-        // Transform[] transforms = _currentDead.GetComponentsInChildren<Transform>();
-        // foreach (Transform t in transforms) t.position = Vector3.zero;
+        // Freezing Kart
+        if (_isPlayer) cart.GetComponent<SphereCartController>().OnStun(1);
+        if (_isAi) cart.GetComponent<AICartController>().OnStun(1);
 
         _lastTransform = null;
         _currentDead = null;
