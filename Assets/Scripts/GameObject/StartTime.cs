@@ -13,5 +13,6 @@ public class StartTime : MonoBehaviour
     private void OnDisable()
     {
         Time.timeScale = 1f;
+        RaceStorage.Instance.StartGame();
     }
 }

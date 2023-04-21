@@ -39,7 +39,6 @@ public class RaceStorage : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Call me");
         StartGame();
     }
 
@@ -54,8 +53,9 @@ public class RaceStorage : MonoBehaviour
     /// <summary>
     /// Called when race starts, reponsible to set the initial state of game
     /// </summary>
-    void StartGame()
+    public void StartGame()
     {
+        _currentTime = 0f;
         _isStartRacer = true;
     }
 

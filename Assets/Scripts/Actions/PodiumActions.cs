@@ -8,11 +8,13 @@ public class PodiumActions : MonoBehaviour
     // Actions
     public static Action<List<Podium>> PodiumUpdate;
 
-    private List<Podium> _positions;
+    public List<Podium> _positions;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        _positions = GetComponent<PodiumStore>().positions;
-        PodiumUpdate(_positions);
+        _positions = PodiumStore.Instance.positions;
+        if (_positions.Count > 0) { 
+            PodiumUpdate(_positions);
+        }
     }
 }

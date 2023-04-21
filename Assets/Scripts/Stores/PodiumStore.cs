@@ -70,4 +70,9 @@ public class PodiumStore : MonoBehaviour
     {
         return positions[position - 1].cart.gameObject;
     }
+
+    public void EndGame()
+    {
+        positions = new();
+    }
 }
