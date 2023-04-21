@@ -53,6 +53,7 @@ public class SetPositions : MonoBehaviour
 
         if (_timer > 3)
         {
+            RaceStorage.Instance.EndGame();
             SceneManager.LoadScene("PodiumFortress");
         }
     }

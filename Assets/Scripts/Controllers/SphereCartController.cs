@@ -33,6 +33,7 @@ public class SphereCartController : IKartController
     private float _newSpeed;
     private float _timeKeepingAcceleration;
     private float _timeBoost;
+    private bool _isFreezing = false;
 
     private void OnDrawGizmos()
     {
@@ -96,18 +97,21 @@ public class SphereCartController : IKartController
 
     void FixedUpdate()
     {
-        // Run
-        SphereCollider.AddForce(transform.forward * _currentSpeed, ForceMode.Acceleration);
+        if (!_isFreezing)
+        {
+            // Run
+            SphereCollider.AddForce(transform.forward * _currentSpeed, ForceMode.Acceleration);
 
-        // Gravity
-        SphereCollider.AddForce(Vector3.down * Gravity, ForceMode.Acceleration);
+            // Gravity
+            SphereCollider.AddForce(Vector3.down * Gravity, ForceMode.Acceleration);
 
-        // Steering
-        transform.eulerAngles = Vector3.Lerp(
-            transform.eulerAngles,
-            new Vector3(0, transform.eulerAngles.y + _currentRotation, 0),
-            Time.deltaTime * 5f
-        );
+            // Steering
+            transform.eulerAngles = Vector3.Lerp(
+                transform.eulerAngles,
+                new Vector3(0, transform.eulerAngles.y + _currentRotation, 0),
+                Time.deltaTime * 5f
+            );
+        }
     }
 
     private void Drift()
@@ -148,10 +152,19 @@ public class SphereCartController : IKartController
         _timeKeepingAcceleration = time;
     }
 
-    public void OnStun(float time)
+    public void OnStun(float timeToKeepFreezing)
     {
-        _timeBoost = 0;
-        _timeKeepingAcceleration = time;
+        // Debug.Log("Stun");
+        _isFreezing = true;
+        SphereCollider.velocity = Vector3.zero;
+        SphereCollider.angularVelocity = Vector3.zero;
+        StartCoroutine(ResetFreezing(timeToKeepFreezing));
+    }
+
+    IEnumerator ResetFreezing(float timeToKeepFreezing)
+    {
+        yield return new WaitForSeconds(timeToKeepFreezing); // Time to keep stuning
+        _isFreezing = false;
     }
 
     private void OnAccelerate(float value)
