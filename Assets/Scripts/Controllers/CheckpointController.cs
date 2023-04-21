@@ -1,15 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using Unity.VisualScripting;
 
 public class CheckpointController : MonoBehaviour
 {
+
     // This is there because is setting global configs and needs run after the Aweke, which is the singleton borns
     private void Start()
     {
-        // Debug.Log(transform.childCount);
+        SetCheckpointsID();
+        
         // Set on storage the total number of checkpoints
         RaceStorage.Instance.SetTotalRacerCheckpoints(transform.childCount);
 
@@ -41,5 +40,15 @@ public class CheckpointController : MonoBehaviour
         }
 
         RaceStorage.Instance.SetIsWorngFlow(tmpIsWrongFlow);
+    }
+    private void SetCheckpointsID()
+    {
+        Checkpoint[] checkpoints = GetComponentsInChildren<Checkpoint>();
+        
+        for(int i = 1; i <= checkpoints.Length; i++)
+        {
+            checkpoints[i - 1].CheckpointOrder = i;
+            checkpoints[i - 1].gameObject.name = "Checkpoint_" + i;
+        }
     }
 }
