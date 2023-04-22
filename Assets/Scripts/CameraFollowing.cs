@@ -30,7 +30,7 @@ public class CameraFollowing : MonoBehaviour
         _tmpPosition += Target.right * OffsetCam.x;
         _tmpPosition += Target.up * OffsetCam.y;
 
-        _cam.position = Vector3.Lerp(_cam.position, _tmpPosition, Time.deltaTime * 10f);
+        _cam.position = Vector3.Lerp(_cam.position, _tmpPosition, Time.deltaTime * 30f);
     }
 
     private void SetCameraDirection()

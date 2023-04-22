@@ -49,12 +49,20 @@ public class SphereCartController : IKartController
     {
         PlayerInputControllerActions.Accelerate += OnAccelerate;
         PlayerInputControllerActions.Steering += OnSteering;
+        PlayerInputControllerActions.Breaking += OnBreaking;
     }
 
     public void OnDisable()
     {
         PlayerInputControllerActions.Accelerate -= OnAccelerate;
         PlayerInputControllerActions.Steering -= OnSteering;
+        PlayerInputControllerActions.Breaking -= OnBreaking;
+
+    }
+
+    private void OnBreaking(bool state)
+    {
+        _isBreaking = state;
     }
 
     void Update()
@@ -73,15 +81,6 @@ public class SphereCartController : IKartController
         }
         // Input Steer
         _rotation = _steeringButtonValue * Steering;
-        // Input Break
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _isBreaking = true;
-        }
-        else
-        {
-            _isBreaking = false;
-        }
 
         Drift();
 
@@ -120,7 +119,7 @@ public class SphereCartController : IKartController
 
     private void Drift()
     {
-        if (Input.GetButtonDown("Jump") && !_isDrifting && Input.GetAxis("Horizontal") != 0)
+        if (_isBreaking && !_isDrifting && Input.GetAxis("Horizontal") != 0)
         {
             Debug.Log("DIFTING");
             _driftPower = 0;
@@ -130,13 +129,14 @@ public class SphereCartController : IKartController
 
         if (_isDrifting)
         {
-            float control = (_driftingDirection == 1) ? ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 0, 2) : ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 2, 0);
-            float powerControl = (_driftingDirection == 1) ? ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, .2f, 1) : ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 1, .2f);
-            _rotation = Steering * _driftingDirection * control; 
+            float control = (_driftingDirection == 1) ? ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 0, 2) : ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 2, 0);
+            float powerControl = (_driftingDirection == 1) ? ExtensionMethods.Remap(_steeringButtonValue, -1, 1, .2f, 1) : ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 1, .2f);
+            _rotation = 20f * _driftingDirection * control;
+            Debug.Log(_rotation);
             _driftPower += powerControl;
         }
 
-        if (Input.GetButtonUp("Jump") && _isDrifting)
+        if (!_isBreaking && _isDrifting)
         {
             // Boost 
             Debug.Log($"BOOST {_driftPower}");
@@ -147,7 +147,10 @@ public class SphereCartController : IKartController
 
     public void OnBoost(float boostPower)
     {
-        _currentSpeed = boostPower + Acceleration;
+        if (boostPower < Acceleration)
+            _currentSpeed = boostPower + Acceleration;
+        else
+            _currentSpeed = 2 * Acceleration;
     }
 
     public void OnBoost(float boostPower, float time)
