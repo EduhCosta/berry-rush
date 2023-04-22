@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -106,11 +107,14 @@ public class SphereCartController : IKartController
             SphereCollider.AddForce(Vector3.down * Gravity, ForceMode.Acceleration);
 
             // Steering
-            transform.eulerAngles = Vector3.Lerp(
-                transform.eulerAngles,
-                new Vector3(0, transform.eulerAngles.y + _currentRotation, 0),
-                Time.deltaTime * 5f
-            );
+            if (_isDisableSteering == false)
+            {
+                transform.eulerAngles = Vector3.Lerp(
+                    transform.eulerAngles,
+                    new Vector3(0, transform.eulerAngles.y + _currentRotation, 0),
+                    Time.deltaTime * 5f
+                );
+            }
         }
     }
 

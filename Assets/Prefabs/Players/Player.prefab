@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 439869981}
   - component: {fileID: 439869980}
   - component: {fileID: 439869979}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 9203618263894593598}
   - component: {fileID: 9203618263894593568}
   - component: {fileID: 9203618263894593599}
+  - component: {fileID: 964733466}
   m_Layer: 3
   m_Name: Collider
   m_TagString: Player
@@ -160,6 +161,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &964733466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203618263894593597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ba75c875461f242bd22210bbebafce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  CartWidth: 1.4
 --- !u!1 &9203618263958595854
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9203618264384512263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
