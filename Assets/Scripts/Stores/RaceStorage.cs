@@ -39,7 +39,6 @@ public class RaceStorage : MonoBehaviour
 
     private void Start()
     {
-        // Test
         StartGame();
     }
 
@@ -54,8 +53,9 @@ public class RaceStorage : MonoBehaviour
     /// <summary>
     /// Called when race starts, reponsible to set the initial state of game
     /// </summary>
-    void StartGame()
+    public void StartGame()
     {
+        _currentTime = 0f;
         _isStartRacer = true;
     }
 
@@ -72,10 +72,18 @@ public class RaceStorage : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
-        _currentTime = 0f;
         _isStartRacer = false;
+        _currentTime = 0f;
         _totalCheckpoints = 0;
         _totalLaps = 0;
+        _currentLap = 1;
+        QueueOfLaps = new();
+        QueueOfCheckpoints = new();
+        QueueOfRaceCheckpoints = new();
+        _isWrongFlow = false;
+        _lapHandler = null;
+        _racers = null;
+        _currentLapByRacer = new();
     }
 
     /// <summary>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,7 @@ public class SphereCartController : IKartController
     private float _newSpeed;
     private float _timeKeepingAcceleration;
     private float _timeBoost;
+    private bool _isFreezing = false;
 
     private void OnDrawGizmos()
     {
@@ -47,12 +49,20 @@ public class SphereCartController : IKartController
     {
         PlayerInputControllerActions.Accelerate += OnAccelerate;
         PlayerInputControllerActions.Steering += OnSteering;
+        PlayerInputControllerActions.Breaking += OnBreaking;
     }
 
     public void OnDisable()
     {
         PlayerInputControllerActions.Accelerate -= OnAccelerate;
         PlayerInputControllerActions.Steering -= OnSteering;
+        PlayerInputControllerActions.Breaking -= OnBreaking;
+
+    }
+
+    private void OnBreaking(bool state)
+    {
+        _isBreaking = state;
     }
 
     void Update()
@@ -71,15 +81,6 @@ public class SphereCartController : IKartController
         }
         // Input Steer
         _rotation = _steeringButtonValue * Steering;
-        // Input Break
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _isBreaking = true;
-        }
-        else
-        {
-            _isBreaking = false;
-        }
 
         Drift();
 
@@ -96,23 +97,29 @@ public class SphereCartController : IKartController
 
     void FixedUpdate()
     {
-        // Run
-        SphereCollider.AddForce(transform.forward * _currentSpeed, ForceMode.Acceleration);
+        if (!_isFreezing)
+        {
+            // Run
+            SphereCollider.AddForce(transform.forward * _currentSpeed, ForceMode.Acceleration);
 
-        // Gravity
-        SphereCollider.AddForce(Vector3.down * Gravity, ForceMode.Acceleration);
+            // Gravity
+            SphereCollider.AddForce(Vector3.down * Gravity, ForceMode.Acceleration);
 
-        // Steering
-        transform.eulerAngles = Vector3.Lerp(
-            transform.eulerAngles,
-            new Vector3(0, transform.eulerAngles.y + _currentRotation, 0),
-            Time.deltaTime * 5f
-        );
+            // Steering
+            if (_isDisableSteering == false)
+            {
+                transform.eulerAngles = Vector3.Lerp(
+                    transform.eulerAngles,
+                    new Vector3(0, transform.eulerAngles.y + _currentRotation, 0),
+                    Time.deltaTime * 5f
+                );
+            }
+        }
     }
 
     private void Drift()
     {
-        if (Input.GetButtonDown("Jump") && !_isDrifting && Input.GetAxis("Horizontal") != 0)
+        if (_isBreaking && !_isDrifting && Input.GetAxis("Horizontal") != 0)
         {
             Debug.Log("DIFTING");
             _driftPower = 0;
@@ -122,13 +129,14 @@ public class SphereCartController : IKartController
 
         if (_isDrifting)
         {
-            float control = (_driftingDirection == 1) ? ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 0, 2) : ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 2, 0);
-            float powerControl = (_driftingDirection == 1) ? ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, .2f, 1) : ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 1, .2f);
-            _rotation = Steering * _driftingDirection * control; 
+            float control = (_driftingDirection == 1) ? ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 0, 2) : ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 2, 0);
+            float powerControl = (_driftingDirection == 1) ? ExtensionMethods.Remap(_steeringButtonValue, -1, 1, .2f, 1) : ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 1, .2f);
+            _rotation = 20f * _driftingDirection * control;
+            Debug.Log(_rotation);
             _driftPower += powerControl;
         }
 
-        if (Input.GetButtonUp("Jump") && _isDrifting)
+        if (!_isBreaking && _isDrifting)
         {
             // Boost 
             Debug.Log($"BOOST {_driftPower}");
@@ -139,7 +147,10 @@ public class SphereCartController : IKartController
 
     public void OnBoost(float boostPower)
     {
-        _currentSpeed = boostPower + Acceleration;
+        if (boostPower < Acceleration)
+            _currentSpeed = boostPower + Acceleration;
+        else
+            _currentSpeed = 2 * Acceleration;
     }
 
     public void OnBoost(float boostPower, float time)
@@ -148,10 +159,19 @@ public class SphereCartController : IKartController
         _timeKeepingAcceleration = time;
     }
 
-    public void OnStun(float time)
+    public void OnStun(float timeToKeepFreezing)
     {
-        _timeBoost = 0;
-        _timeKeepingAcceleration = time;
+        // Debug.Log("Stun");
+        _isFreezing = true;
+        SphereCollider.velocity = Vector3.zero;
+        SphereCollider.angularVelocity = Vector3.zero;
+        StartCoroutine(ResetFreezing(timeToKeepFreezing));
+    }
+
+    IEnumerator ResetFreezing(float timeToKeepFreezing)
+    {
+        yield return new WaitForSeconds(timeToKeepFreezing); // Time to keep stuning
+        _isFreezing = false;
     }
 
     private void OnAccelerate(float value)

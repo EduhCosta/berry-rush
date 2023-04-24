@@ -44,7 +44,7 @@ public class AIDecisionHandler : MonoBehaviour
 
         int indexOfNextCheckpoint = racerCheckpoints.Count - (_checkpoints.Count * (_currentLap - 1));
 
-        Debug.Log($"{AIIdentifier.GetName(gameObject)} [{_currentLap}] - {indexOfNextCheckpoint}; {_checkpoints.Count}");
+        //Debug.Log($"{AIIdentifier.GetName(gameObject)} [{_currentLap}] - {indexOfNextCheckpoint}; {_checkpoints.Count}");
 
         Vector3 nextCheckpointForward =
             _checkpoints.Count > 0 && racerCheckpoints.Count % _checkpoints.Count == 0 ? // If the cart pass on checkpoint

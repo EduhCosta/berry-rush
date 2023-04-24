@@ -12,7 +12,7 @@ public class SetPositions : MonoBehaviour
     [SerializeField] public TMP_Text[] text_fields;
     [SerializeField] public GameObject panel;
 
-    private List<Podium> _positions;
+    private List<Podium> _positions = new();
     private bool _isTimerTrigged = false;
     private float _timer = 0;
 
@@ -53,6 +53,7 @@ public class SetPositions : MonoBehaviour
 
         if (_timer > 3)
         {
+            RaceStorage.Instance.EndGame();
             SceneManager.LoadScene("PodiumFortress");
         }
     }
