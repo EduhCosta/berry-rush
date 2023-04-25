@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fortress/RaceFortress.unity
     guid: b8e09ad02f2f6e841881ae567fb84a29
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/CutsceneTutorial.unity
+    guid: 65c5befc23f51414db7d7c1013144d08
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/PodiumTutorial.unity
+    guid: 0f67052f932bd984ba8b544f3da31e9e
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/RaceTutorial.unity
+    guid: 1c9cd10262497ae41a75443757e135f3
   m_configObjects: {}

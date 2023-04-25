@@ -121,7 +121,7 @@ public class SphereCartController : IKartController
     {
         if (_isBreaking && !_isDrifting && Input.GetAxis("Horizontal") != 0)
         {
-            Debug.Log("DIFTING");
+            // Debug.Log("DIFTING");
             _driftPower = 0;
             _isDrifting = true;
             _driftingDirection = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
@@ -132,14 +132,14 @@ public class SphereCartController : IKartController
             float control = (_driftingDirection == 1) ? ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 0, 2) : ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 2, 0);
             float powerControl = (_driftingDirection == 1) ? ExtensionMethods.Remap(_steeringButtonValue, -1, 1, .2f, 1) : ExtensionMethods.Remap(_steeringButtonValue, -1, 1, 1, .2f);
             _rotation = 20f * _driftingDirection * control;
-            Debug.Log(_rotation);
+            // Debug.Log(_rotation);       
             _driftPower += powerControl;
         }
 
         if (!_isBreaking && _isDrifting)
         {
             // Boost 
-            Debug.Log($"BOOST {_driftPower}");
+            // Debug.Log($"BOOST {_driftPower}");
             OnBoost(_driftPower); // Setting to control the boost
             _isDrifting = false;
         }
