@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 439869977}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 224.50452, z: 0}
-  m_LocalScale: {x: 18.301672, y: 18.301672, z: 18.301672}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9203618264384512264}
@@ -308,7 +308,7 @@ MonoBehaviour:
   SphereCollider: {fileID: 9203618263894593599}
   Acceleration: 100
   Steering: 25
-  Gravity: 50
+  Gravity: 30
   BoostAcceleration: 60
   CurrentSpeed: 0
 --- !u!114 &2101538481
