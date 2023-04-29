@@ -10,7 +10,7 @@ public class AIInputController : MonoBehaviour
     private string _aiId;
     private float _forwardAngleToNextCheckpoint;
     private bool _hasOstablesOnTheRoad;
-    private int _directionToAvoidObstacle = 0;
+    private float _directionToAvoidObstacle = 0f;
 
     public float Direction = 0;
     public float Accelerate = 0;
@@ -19,6 +19,7 @@ public class AIInputController : MonoBehaviour
     private CheckpointData[] _aICheckpointsDone;
     private int currentCheckpoint = 1;
     private bool _restarting = false;
+    private AIDecisionHandler _handler;
 
     void OnEnable()
     {
@@ -32,17 +33,21 @@ public class AIInputController : MonoBehaviour
         else _restarting = false;
     }
 
+    private void Start()
+    {
+        _handler = GetComponent<AIDecisionHandler>();
+    }
+
     void Update()
     {
         _aICheckpointsDone = RaceStorage.Instance.GetCheckpointsByRacer(_aiId).ToArray();
-
-        AIDecisionHandler handler = GetComponent<AIDecisionHandler>();
-        _forwardAngleToNextCheckpoint = handler.AngleToNextCheckpointForward;
-        _hasOstablesOnTheRoad = handler.HasOstablesOnTheRoad;
-        _directionToAvoidObstacle = handler.DirectionToAvoidObstacle;
+        
+        _forwardAngleToNextCheckpoint = _handler.AngleToNextCheckpointForward;
+        _hasOstablesOnTheRoad = _handler.HasOstablesOnTheRoad;
+        _directionToAvoidObstacle = _handler.DirectionToAvoidObstacle;
 
         Accelerate = _restarting ? 0 : GoToNextPoint();
-        Direction = _hasOstablesOnTheRoad ? _directionToAvoidObstacle : KeepDirectionToNextCheckpoint();
+        Direction = _hasOstablesOnTheRoad ? _directionToAvoidObstacle * 0.5f : KeepDirectionToNextCheckpoint();
     }
 
     private int GoToNextPoint()

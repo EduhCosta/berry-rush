@@ -66,9 +66,9 @@ public class AIDecisionHandler : MonoBehaviour
         yield return new WaitForSeconds(interval); //Time to keep sorting
         //Debug.Log("Running");
         
-        bool hasObstacleOnRight = DrawRaycast(30);
-        bool hasObstacleOnLeft = DrawRaycast(-30);
-        bool hasObstacleOnMiddle = DrawRaycast(0);
+        bool hasObstacleOnRight = DrawRaycast(25, 15);
+        bool hasObstacleOnLeft = DrawRaycast(-25, 15);
+        bool hasObstacleOnMiddle = DrawRaycast(0, 10);
 
         //Debug.Log($"Collision on right - {hasObstacleOnRight}");
         //Debug.Log($"Collision on left - {hasObstacleOnLeft}");
@@ -82,8 +82,7 @@ public class AIDecisionHandler : MonoBehaviour
         StartCoroutine(CheckingObstacles(interval));
     }
 
-    private bool DrawRaycast(float angle) {
-        float projectionScale = 10;
+    private bool DrawRaycast(float angle, float projectionScale) {
 
         RaycastHit hit;
         Vector3 radar = Quaternion.Euler(0, angle, 0) * transform.forward;
