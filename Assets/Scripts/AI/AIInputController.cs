@@ -9,9 +9,12 @@ public class AIInputController : MonoBehaviour
 
     private string _aiId;
     private float _forwardAngleToNextCheckpoint;
+    private bool _hasOstablesOnTheRoad;
+    private int _directionToAvoidObstacle = 0;
 
     public float Direction = 0;
     public float Accelerate = 0;
+    public bool IsDrifting = false;
 
     private CheckpointData[] _aICheckpointsDone;
     private int currentCheckpoint = 1;
@@ -32,10 +35,14 @@ public class AIInputController : MonoBehaviour
     void Update()
     {
         _aICheckpointsDone = RaceStorage.Instance.GetCheckpointsByRacer(_aiId).ToArray();
-        _forwardAngleToNextCheckpoint = GetComponent<AIDecisionHandler>().AngleToNextCheckpointForward;
-        
+
+        AIDecisionHandler handler = GetComponent<AIDecisionHandler>();
+        _forwardAngleToNextCheckpoint = handler.AngleToNextCheckpointForward;
+        _hasOstablesOnTheRoad = handler.HasOstablesOnTheRoad;
+        _directionToAvoidObstacle = handler.DirectionToAvoidObstacle;
+
         Accelerate = _restarting ? 0 : GoToNextPoint();
-        Direction = KeepDirectionToNextCheckpoint();
+        Direction = _hasOstablesOnTheRoad ? _directionToAvoidObstacle : KeepDirectionToNextCheckpoint();
     }
 
     private int GoToNextPoint()
@@ -64,5 +71,15 @@ public class AIInputController : MonoBehaviour
         }
 
         return NEUTRAL;
+    }
+
+    public void StartDrift()
+    {
+        IsDrifting = true;
+    }
+
+    public void EndDrift()
+    {
+        IsDrifting = false;
     }
 }

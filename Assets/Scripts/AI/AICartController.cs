@@ -25,6 +25,9 @@ public class AICartController : IKartController
     private float _timeKeepingAcceleration;
     private float _timeBoost;
     private bool _isFreezing;
+    private AIInputController _controller;
+    [SerializeField]  private float _driftPower = 0f;
+    private float _driftingDirection = 0f;
 
     private void OnDrawGizmos()
     {
@@ -35,12 +38,17 @@ public class AICartController : IKartController
 
     }
 
+    private void Start()
+    {
+        _controller = GetComponent<AIInputController>();
+    }
+
     void Update()
     {
         // Follow sphere
         transform.position = SphereCollider.transform.position - new Vector3(0, 0.4f, 0);
         // Input Accelerate
-        float accelerate = GetComponent<AIInputController>().Accelerate;
+        float accelerate = _controller.Accelerate;
         if (_timeKeepingAcceleration <= 0)
         {
             _speed = accelerate * Acceleration;
@@ -51,8 +59,12 @@ public class AICartController : IKartController
             _timeKeepingAcceleration -= Time.deltaTime;
         }
         // Input Steer
-        float direction = GetComponent<AIInputController>().Direction;
-        _rotation = direction  * Steering;
+        float direction = _controller.Direction;
+        _rotation = direction * Steering;
+
+        // Drift
+        Drift();
+
         // Input Break
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -93,9 +105,33 @@ public class AICartController : IKartController
         }
     }
 
+    private void Drift()
+    {
+        float direction = _controller.Direction;
+        _driftingDirection = direction > 0 ? 1 : -1;
+
+        if (_controller.IsDrifting && direction != 0)
+        {
+            float control = (_driftingDirection == 1) ? ExtensionMethods.Remap(direction, -1, 1, 0, 2) : ExtensionMethods.Remap(direction, -1, 1, 2, 0);
+            float powerControl = (_driftingDirection == 1) ? ExtensionMethods.Remap(direction, -1, 1, .2f, 1) : ExtensionMethods.Remap(direction, -1, 1, 1, .2f);
+            _rotation = 20f * _driftingDirection * control;
+            _driftPower += powerControl;
+        }
+
+        if (!_controller.IsDrifting && _driftPower > 0)
+        {
+            OnBoost(_driftPower);
+            _driftPower = 0;
+            _driftingDirection = _controller.Direction > 0 ? 1 : -1;
+        }
+    }
+
     public void OnBoost(float boostPower)
     {
-        _currentSpeed = boostPower + Acceleration;
+        if (boostPower < Acceleration)
+            _currentSpeed = boostPower + Acceleration;
+        else
+            _currentSpeed = 2 * Acceleration;
     }
 
     public void OnBoost(float boostPower, float time)

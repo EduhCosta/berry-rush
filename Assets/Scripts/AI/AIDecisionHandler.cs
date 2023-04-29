@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class AIDecisionHandler : MonoBehaviour
     public List<int> BlockedDirections = new();
     public float AngleToNextCheckpointForward = 0;
     public int DirectionToCentralize = 0;
+    public bool HasOstablesOnTheRoad;
+    public int DirectionToAvoidObstacle = 0;
 
     private Queue<RaceCheckpoint> _checkpoints;
     private string _playerId;
@@ -23,6 +26,8 @@ public class AIDecisionHandler : MonoBehaviour
     {
         _checkpoints = RaceStorage.Instance.GetRaceCheckpoints();
         _playerId = AIIdentifier.GetAIId(gameObject);
+
+        StartCoroutine(CheckingObstacles(0.5f));
     }
 
     private void Update()
@@ -44,7 +49,7 @@ public class AIDecisionHandler : MonoBehaviour
 
         int indexOfNextCheckpoint = racerCheckpoints.Count - (_checkpoints.Count * (_currentLap - 1));
 
-        //Debug.Log($"{AIIdentifier.GetName(gameObject)} [{_currentLap}] - {indexOfNextCheckpoint}; {_checkpoints.Count}");
+        Debug.Log($"{AIIdentifier.GetName(gameObject)} [{_currentLap}] - {indexOfNextCheckpoint}; {_checkpoints.Count}");
 
         Vector3 nextCheckpointForward =
             _checkpoints.Count > 0 && racerCheckpoints.Count % _checkpoints.Count == 0 ? // If the cart pass on checkpoint
@@ -54,5 +59,37 @@ public class AIDecisionHandler : MonoBehaviour
         float angle = Vector3.SignedAngle(nextCheckpointForward, transform.forward, Vector3.up);
 
         AngleToNextCheckpointForward = angle;
+    }
+
+    private IEnumerator CheckingObstacles(float interval)
+    {
+        yield return new WaitForSeconds(interval); //Time to keep sorting
+        //Debug.Log("Running");
+        
+        bool hasObstacleOnRight = DrawRaycast(30);
+        bool hasObstacleOnLeft = DrawRaycast(-30);
+        bool hasObstacleOnMiddle = DrawRaycast(0);
+
+        //Debug.Log($"Collision on right - {hasObstacleOnRight}");
+        //Debug.Log($"Collision on left - {hasObstacleOnLeft}");
+        //Debug.Log($"Collision on middle - {hasObstacleOnMiddle}");
+
+        HasOstablesOnTheRoad = hasObstacleOnLeft || hasObstacleOnMiddle || hasObstacleOnRight;
+        if (hasObstacleOnMiddle) DirectionToAvoidObstacle = Random.Range(-1, 1);
+        if (hasObstacleOnLeft) DirectionToAvoidObstacle = 1;
+        if (hasObstacleOnRight) DirectionToAvoidObstacle = -1;
+
+        StartCoroutine(CheckingObstacles(interval));
+    }
+
+    private bool DrawRaycast(float angle) {
+        float projectionScale = 10;
+
+        RaycastHit hit;
+        Vector3 radar = Quaternion.Euler(0, angle, 0) * transform.forward;
+        bool hasObstacleOnAngle = Physics.Raycast(transform.position, radar * projectionScale, out hit, projectionScale, ObstacleMask);
+
+        Debug.DrawRay(transform.position, radar * projectionScale, Color.green, 1, false);
+        return hasObstacleOnAngle;
     }
 }

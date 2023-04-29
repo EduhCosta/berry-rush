@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SphereCollider: {fileID: 1255514652673170668}
-  Acceleration: 120
-  Steering: 30
-  Gravity: 50
+  Acceleration: 100
+  Steering: 25
+  Gravity: 30
   GizmoColor: {r: 0.6431373, g: 0.04977129, b: 0, a: 1}
 --- !u!114 &1255514652116413913
 MonoBehaviour:
