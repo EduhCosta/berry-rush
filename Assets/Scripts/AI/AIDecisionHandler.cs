@@ -27,7 +27,7 @@ public class AIDecisionHandler : MonoBehaviour
         _checkpoints = RaceStorage.Instance.GetRaceCheckpoints();
         _playerId = AIIdentifier.GetAIId(gameObject);
 
-        StartCoroutine(CheckingObstacles(0.5f));
+        StartCoroutine(CheckingObstacles(0.2f));
     }
 
     private void Update()
@@ -49,7 +49,7 @@ public class AIDecisionHandler : MonoBehaviour
 
         int indexOfNextCheckpoint = racerCheckpoints.Count - (_checkpoints.Count * (_currentLap - 1));
 
-        Debug.Log($"{AIIdentifier.GetName(gameObject)} [{_currentLap}] - {indexOfNextCheckpoint}; {_checkpoints.Count}");
+        //Debug.Log($"{AIIdentifier.GetName(gameObject)} [{_currentLap}] - {indexOfNextCheckpoint}; {_checkpoints.Count}");
 
         Vector3 nextCheckpointForward =
             _checkpoints.Count > 0 && racerCheckpoints.Count % _checkpoints.Count == 0 ? // If the cart pass on checkpoint
@@ -88,7 +88,7 @@ public class AIDecisionHandler : MonoBehaviour
         Vector3 radar = Quaternion.Euler(0, angle, 0) * transform.forward;
         bool hasObstacleOnAngle = Physics.Raycast(transform.position, radar * projectionScale, out hit, projectionScale, ObstacleMask);
 
-        Debug.DrawRay(transform.position, radar * projectionScale, Color.green, 1, false);
+        Debug.DrawRay(transform.position, radar * projectionScale, Color.green);
         return hasObstacleOnAngle;
     }
 }
