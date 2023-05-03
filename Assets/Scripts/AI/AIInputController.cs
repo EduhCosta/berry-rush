@@ -9,13 +9,17 @@ public class AIInputController : MonoBehaviour
 
     private string _aiId;
     private float _forwardAngleToNextCheckpoint;
+    private bool _hasOstablesOnTheRoad;
+    private float _directionToAvoidObstacle = 0f;
 
     public float Direction = 0;
     public float Accelerate = 0;
+    public bool IsDrifting = false;
 
     private CheckpointData[] _aICheckpointsDone;
     private int currentCheckpoint = 1;
     private bool _restarting = false;
+    private AIDecisionHandler _handler;
 
     void OnEnable()
     {
@@ -29,13 +33,21 @@ public class AIInputController : MonoBehaviour
         else _restarting = false;
     }
 
+    private void Start()
+    {
+        _handler = GetComponent<AIDecisionHandler>();
+    }
+
     void Update()
     {
         _aICheckpointsDone = RaceStorage.Instance.GetCheckpointsByRacer(_aiId).ToArray();
-        _forwardAngleToNextCheckpoint = GetComponent<AIDecisionHandler>().AngleToNextCheckpointForward;
         
-        Accelerate = _restarting ? 0 : GoToNextPoint();
-        Direction = KeepDirectionToNextCheckpoint();
+        _forwardAngleToNextCheckpoint = _handler.AngleToNextCheckpointForward;
+        _hasOstablesOnTheRoad = _handler.HasOstablesOnTheRoad;
+        _directionToAvoidObstacle = _handler.DirectionToAvoidObstacle;
+
+        Accelerate = _handler.IsMustRollback ? -1 : _restarting ? 0 : GoToNextPoint();
+        Direction = _hasOstablesOnTheRoad ? _directionToAvoidObstacle * 0.5f : KeepDirectionToNextCheckpoint();
     }
 
     private int GoToNextPoint()
@@ -64,5 +76,15 @@ public class AIInputController : MonoBehaviour
         }
 
         return NEUTRAL;
+    }
+
+    public void StartDrift()
+    {
+        IsDrifting = true;
+    }
+
+    public void EndDrift()
+    {
+        IsDrifting = false;
     }
 }

@@ -16,6 +16,9 @@ public class SphereCartController : IKartController
     [SerializeField] public float BoostAcceleration = 60f;
     [SerializeField] public float CurrentSpeed;
 
+    [Header("Feedback objects")]
+    [SerializeField] public GameObject DriftTrail;
+
     private float _accelerateButtonValue;
     private float _steeringButtonValue;
 
@@ -57,7 +60,6 @@ public class SphereCartController : IKartController
         PlayerInputControllerActions.Accelerate -= OnAccelerate;
         PlayerInputControllerActions.Steering -= OnSteering;
         PlayerInputControllerActions.Breaking -= OnBreaking;
-
     }
 
     private void OnBreaking(bool state)
@@ -85,8 +87,8 @@ public class SphereCartController : IKartController
         Drift();
 
         // Accelerate
-        _timeToAddForce = _isBreaking ? 3f : 12f; // Time to break : Time to max acceletate
-        _newSpeed = _isBreaking ? 0 : _speed;
+        _timeToAddForce = _isBreaking && !_isDrifting ? 3f : 12f; // Time to break : Time to max acceletate
+        _newSpeed = _isBreaking && !_isDrifting ? 0 : _speed;
         _currentSpeed = Mathf.SmoothStep(_currentSpeed, _newSpeed, Time.deltaTime * _timeToAddForce);
         // Steer
         _currentRotation = Mathf.Lerp(_currentRotation, _rotation, Time.deltaTime * 4f);
@@ -125,6 +127,7 @@ public class SphereCartController : IKartController
             _driftPower = 0;
             _isDrifting = true;
             _driftingDirection = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
+            DriftTrail.SetActive(true);
         }
 
         if (_isDrifting)
@@ -142,6 +145,7 @@ public class SphereCartController : IKartController
             // Debug.Log($"BOOST {_driftPower}");
             OnBoost(_driftPower); // Setting to control the boost
             _isDrifting = false;
+            DriftTrail.SetActive(false);
         }
     }
 

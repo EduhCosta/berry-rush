@@ -180,9 +180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SphereCollider: {fileID: 1255514652673170668}
   Acceleration: 120
-  Steering: 30
-  Gravity: 50
+  Steering: 25
+  Gravity: 40
   GizmoColor: {r: 0.6431373, g: 0.04977129, b: 0, a: 1}
+  _driftPower: 0
 --- !u!114 &1255514652116413913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,13 +200,16 @@ MonoBehaviour:
   CheckableAheadDistance: 20
   ObstacleMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 776
   CornerPitMask:
     serializedVersion: 2
     m_Bits: 128
   BlockedDirections: 
   AngleToNextCheckpointForward: 0
   DirectionToCentralize: 0
+  HasOstablesOnTheRoad: 0
+  DirectionToAvoidObstacle: 0
+  IsMustRollback: 0
 --- !u!114 &1255514652116413912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direction: 0
   Accelerate: 0
+  IsDrifting: 0
 --- !u!1 &1255514652673170670
 GameObject:
   m_ObjectHideFlags: 0
