@@ -46,7 +46,7 @@ public class AIInputController : MonoBehaviour
         _hasOstablesOnTheRoad = _handler.HasOstablesOnTheRoad;
         _directionToAvoidObstacle = _handler.DirectionToAvoidObstacle;
 
-        Accelerate = _restarting ? 0 : GoToNextPoint();
+        Accelerate = _handler.IsMustRollback ? -1 : _restarting ? 0 : GoToNextPoint();
         Direction = _hasOstablesOnTheRoad ? _directionToAvoidObstacle * 0.5f : KeepDirectionToNextCheckpoint();
     }
 

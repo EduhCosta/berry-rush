@@ -60,7 +60,6 @@ public class SphereCartController : IKartController
         PlayerInputControllerActions.Accelerate -= OnAccelerate;
         PlayerInputControllerActions.Steering -= OnSteering;
         PlayerInputControllerActions.Breaking -= OnBreaking;
-
     }
 
     private void OnBreaking(bool state)
