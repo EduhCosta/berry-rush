@@ -2,6 +2,8 @@
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class PowerUp: MonoBehaviour
 {
@@ -21,9 +23,10 @@ public class PowerUp: MonoBehaviour
     [Header("Bullet Properties")]
     [SerializeField] private bool _isBullet;
     [SerializeField] private float _bulletSpeed;
-    [SerializeField] private float _bulletLifeTime;
+    // [SerializeField] private float _bulletLifeTime;
     [SerializeField] private Mesh _bulletAspect;
     [SerializeField] private Material _bulletMaterial;
+    [SerializeField] private int _bulletTargetByRaceRaking = 0;
     //[Tooltip("Deinfe the position of power up bullet will go")]
     //[SerializeField] private int _targetPosition;
 
@@ -85,31 +88,7 @@ public class PowerUp: MonoBehaviour
         if (_isBullet)
         {
             GenerateBullet(cart);
-
-
-            //if (_targetPosition != 0)
-            //{
-            //    GameObject targetElement = PodiumStore.Instance.GetPlayerByPosition(_targetPosition);
-            //    // Identificar se a distância entre o próximo checkpoint ou o alvo é a mais próxima, a que for o projétil vai seguir
-            //}
-
         }
-    }
-
-    private GameObject GenerateCollider(GameObject player)
-    {
-        GameObject cart = PlayerIdentifier.GetKartObject(player);
-        GameObject collider = new GameObject();
-        collider.name = _name + "_Collider";
-        collider.transform.position = cart.transform.position;
-        MeshCollider meshCollider = collider.AddComponent<MeshCollider>();
-        // meshCollider.sharedMesh = _DamageRange;
-        meshCollider.convex = true;
-        meshCollider.isTrigger = true;
-        collider.transform.parent = cart.transform;
-        collider.transform.rotation = new Quaternion();
-
-        return collider;
     }
 
     private GameObject GenerateBullet(GameObject player)
@@ -118,46 +97,43 @@ public class PowerUp: MonoBehaviour
         GameObject bullet = new GameObject();
 
         bullet.name = _name + "_Bullet";
-        bullet.transform.position = cart.transform.position;
+        bullet.transform.position = cart.transform.position + (cart.transform.forward * 10);
         bullet.transform.forward = cart.transform.forward;
-
-        Rigidbody rb = bullet.AddComponent<Rigidbody>();
-        rb.useGravity = false;
 
         MeshFilter mf = bullet.AddComponent<MeshFilter>();
         mf.mesh = _bulletAspect;
 
-        MeshRenderer mr = bullet.AddComponent<MeshRenderer>();
-        mr.materials[0] = _bulletMaterial;
+        bullet.AddComponent<MeshRenderer>();
+        bullet.GetComponent<Renderer>().material = _bulletMaterial;
 
         BoxCollider bc = bullet.AddComponent<BoxCollider>();
         bc.isTrigger = true;
 
-        Bullet bl = bullet.AddComponent<Bullet>();
-        bl.TriggerElement = cart;
-        bl.Velocity = _bulletSpeed;
-        bl.TargetMask = _target;
-        bl.VelocityToAdd = _velocityToAdd;
-        bl.IsFreezingFunctions = _isFreezingFunctions;
-        bl.TargetForce = _targeForce;
-        bl.LifeTime = _bulletLifeTime;
-        bl.StunTime = _lifeTime;
+        NavMeshAgent nma = bullet.AddComponent<NavMeshAgent>();
+        nma.speed = _bulletSpeed;
+        nma.acceleration = _bulletSpeed;
+
+        BulletPowerUp bpu = bullet.AddComponent<BulletPowerUp>();
+        if (_bulletTargetByRaceRaking > 0) 
+        {
+            SettingPowerUpBullerProps(bpu, _bulletTargetByRaceRaking);
+        } 
+        else
+        {
+            string id = player.GetComponent<CartGameSettings>().GetPlayerId();
+            SettingPowerUpBullerProps(bpu, PodiumStore.Instance.GetCurrentPosition(id) - 1);
+        }
 
         return bullet;
     }
 
-    public void OnRunEffect()
+    private void SettingPowerUpBullerProps(BulletPowerUp bpu, int position)
     {
-
-    }
-
-    private void AddMeshScripts(GameObject collider)
-    {
-        if (_id == 3) // Pesticide
-        {
-            Pesticide p = collider.AddComponent<Pesticide>();
-            p.timeValue = _lifeTime;
-            p.target = _target;
-        }
+        GameObject target = PodiumStore.Instance.GetPlayerByPosition(position);
+        IKartController kartCtrl = target.GetComponentInChildren<IKartController>();
+        bpu.SetTarget(kartCtrl.gameObject);
+        bpu.StunTime = _lifeTime;
+        CartGameSettings settings = target.GetComponent<CartGameSettings>();
+        bpu.TargetId = settings.GetPlayerId();
     }
 }
