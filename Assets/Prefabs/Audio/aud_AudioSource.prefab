@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3145393170698178601
+--- !u!1 &1543490940267297226
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2656926501875903248}
-  - component: {fileID: 894354744393944474}
+  - component: {fileID: 1543490940267297224}
+  - component: {fileID: 1543490940267297227}
   m_Layer: 0
-  m_Name: as_Music
-  m_TagString: Musicas
+  m_Name: aud_AudioSource
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2656926501875903248
+  m_IsActive: 1
+--- !u!4 &1543490940267297224
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3145393170698178601}
+  m_GameObject: {fileID: 1543490940267297226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 920.6178, y: 540.6952, z: -40.822495}
+  m_LocalPosition: {x: 936.0457, y: 527.83167, z: 12.755587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &894354744393944474
+--- !u!82 &1543490940267297227
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3145393170698178601}
+  m_GameObject: {fileID: 1543490940267297226}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1512969406527527788, guid: c849047c664a93a489ba2a183e402206,
+  OutputAudioMixerGroup: {fileID: 8346769323436946742, guid: c849047c664a93a489ba2a183e402206,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: cdf0d89965d8c36428902ac7e48b1152, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.35
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

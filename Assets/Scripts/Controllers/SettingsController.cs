@@ -71,6 +71,7 @@ public class SettingsController : MonoBehaviour
         // General Volume
         float generalVolume = LocalStorage.GetGeneralVolume(0.6f);
         float generalVolumeUpdated = this.OnChangeVolume(GENERAL_VOLUME, generalVolume);
+        Debug.Log(generalVolumeUpdated);
         LocalStorage.SetGeneralVolume(generalVolumeUpdated);
         sld_GeneralVolume.SetValueWithoutNotify(generalVolume);
 
