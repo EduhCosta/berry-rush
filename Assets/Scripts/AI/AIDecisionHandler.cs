@@ -48,6 +48,8 @@ public class AIDecisionHandler : MonoBehaviour
     private void AlignNextCheckpointForward(string playerId)
     {
         Queue<CheckpointData> racerCheckpoints = RaceStorage.Instance.GetCheckpointsByRacer(playerId);
+        if (racerCheckpoints.Count < 1) return;
+
         CheckpointData lastcheckPoint = racerCheckpoints.ToArray()[racerCheckpoints.Count - 1];
 
         // Debug.Log($"Last checkpoint passed - {lastcheckPoint}");
