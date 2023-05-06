@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class PowerUp: MonoBehaviour
 {
@@ -115,19 +116,24 @@ public class PowerUp: MonoBehaviour
         BulletPowerUp bpu = bullet.AddComponent<BulletPowerUp>();
         if (_bulletTargetByRaceRaking > 0) 
         {
-            GameObject target = PodiumStore.Instance.GetPlayerByPosition(_bulletTargetByRaceRaking);
-            IKartController kartCtrl = target.GetComponentInChildren<IKartController>();
-            bpu.SetTarget(kartCtrl.gameObject);
-            bpu.StunTime = _lifeTime;
-            CartGameSettings settings = target.GetComponent<CartGameSettings>();
-            bpu.TargetId = settings.GetPlayerId();
+            SettingPowerUpBullerProps(bpu, _bulletTargetByRaceRaking);
+        } 
+        else
+        {
+            string id = player.GetComponent<CartGameSettings>().GetPlayerId();
+            SettingPowerUpBullerProps(bpu, PodiumStore.Instance.GetCurrentPosition(id) - 1);
         }
 
         return bullet;
     }
 
-    private void GenerateObject()
+    private void SettingPowerUpBullerProps(BulletPowerUp bpu, int position)
     {
-
+        GameObject target = PodiumStore.Instance.GetPlayerByPosition(position);
+        IKartController kartCtrl = target.GetComponentInChildren<IKartController>();
+        bpu.SetTarget(kartCtrl.gameObject);
+        bpu.StunTime = _lifeTime;
+        CartGameSettings settings = target.GetComponent<CartGameSettings>();
+        bpu.TargetId = settings.GetPlayerId();
     }
 }
