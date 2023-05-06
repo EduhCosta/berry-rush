@@ -69,4 +69,10 @@ public static class PlayerIdentifier
         return null;
     }
 
+    public static CartGameSettings GetCartGameSettings(SphereCartController cart)
+    {
+        GameObject parent = cart.gameObject.transform.parent.gameObject;
+        return parent.GetComponent<CartGameSettings>();
+    }
+
 }

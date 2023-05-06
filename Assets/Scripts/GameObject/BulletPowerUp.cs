@@ -40,14 +40,14 @@ public class BulletPowerUp : MonoBehaviour
         {
             SphereCartController cart = PlayerIdentifier.GetKart(obj);
             cart.OnStun(StunTime);
+            Destroy(gameObject, StunTime / 2);
         }
         if (AIIdentifier.IsAI(obj) && AIIdentifier.GetCartGameSettings(obj).GetPlayerId() == TargetId)
         {
             AICartController kart = AIIdentifier.GetAIKart(obj);
             kart.OnStun(StunTime);
+            Destroy(gameObject, StunTime / 2);
         }
-
-        Destroy(gameObject, StunTime / 2);
     }
 
     public void SetTarget(GameObject obj)
