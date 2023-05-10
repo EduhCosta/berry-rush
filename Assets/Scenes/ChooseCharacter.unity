@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CutsceneFortress
+  SceneName: CutsceneTutorial
 --- !u!114 &1179531589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2135,7 +2135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CutsceneFortress
+  SceneName: CutsceneTutorial
 --- !u!114 &1196791885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2321,7 +2321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CutsceneFortress
+  SceneName: CutsceneTutorial
 --- !u!114 &1507713664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3562,7 +3562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4d890de6ebb264a9af7a5132cb712c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CutsceneFortress
+  SceneName: CutsceneTutorial
 --- !u!114 &1906211653
 MonoBehaviour:
   m_ObjectHideFlags: 0

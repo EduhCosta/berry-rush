@@ -9,7 +9,8 @@ using UnityEngine.UI;
 
 public class SetPositions : MonoBehaviour
 {
-    [SerializeField] public TMP_Text[] text_fields;
+    [SerializeField] public TMP_Text CurrentPosition;
+    [SerializeField] public TMP_Text PositionIndication;
     [SerializeField] public GameObject panel;
 
     private List<Podium> _positions = new();
@@ -30,16 +31,34 @@ public class SetPositions : MonoBehaviour
 
     void Update()
     {
-        for(int i = 0; i < text_fields.Length; i++)
+        for(int i = 0; i < _positions.Count; i++)
         {
             if (_positions.Count > 3) // ToDo: Change to size of racers list
             {
-                text_fields[i].gameObject.SetActive(true);
-                text_fields[i].text = _positions[i].cart.PlayerName;
-            }
-            else
-            {
-                text_fields[i].gameObject.SetActive(false);
+                if (PlayerIdentifier.IsPlayer(_positions[i].cart.gameObject))
+                {
+                    int position = i + 1;
+                    string idetificator = "";
+                    if (position == 1)
+                    {
+                        idetificator = "st";
+                    }
+                    if (position == 2)
+                    {
+                        idetificator = "nd";
+                    }
+                    if (position == 3)
+                    {
+                        idetificator = "rd";
+                    }
+                    if (position == 4)
+                    {
+                        idetificator = "th";
+                    }
+
+                    CurrentPosition.text = $"{i + 1} ";
+                    PositionIndication.text = idetificator;
+                }
             }
         }
     }
@@ -54,7 +73,7 @@ public class SetPositions : MonoBehaviour
         if (_timer > 3)
         {
             RaceStorage.Instance.EndGame();
-            SceneManager.LoadScene("PodiumFortress");
+            SceneManager.LoadScene("PodiumTutorial");
         }
     }
 

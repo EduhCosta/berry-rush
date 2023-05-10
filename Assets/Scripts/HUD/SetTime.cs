@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +10,8 @@ public class SetTime : MonoBehaviour
 
     void FixedUpdate()
     {
-        float time = RaceStorage.Instance.GetCurrentTime();
-        Time.text = $"Tempo da corrida: {time}";
+        float seconds = RaceStorage.Instance.GetCurrentTime();
+        TimeSpan time = TimeSpan.FromSeconds(seconds);
+        Time.text = time.ToString(@"mm\:ss\:ff");
     }
 }
