@@ -29,22 +29,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu/Settings.unity
     guid: a77f4aa0649d64d4f893b08f5714afbe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fortress/CutsceneFortress.unity
     guid: 8f166328606501a46a7bd18d88830b13
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fortress/PodiumFortress.unity
     guid: 43d3576fccef451469109497b56db136
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fortress/RaceFortress.unity
     guid: b8e09ad02f2f6e841881ae567fb84a29
-  - enabled: 1
-    path: Assets/Scenes/Tutorial/CutsceneTutorial.unity
-    guid: 65c5befc23f51414db7d7c1013144d08
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Tutorial/PodiumTutorial.unity
     guid: 0f67052f932bd984ba8b544f3da31e9e
   - enabled: 1
     path: Assets/Scenes/Tutorial/RaceTutorial.unity
     guid: 1c9cd10262497ae41a75443757e135f3
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/CutsceneTutorial.unity
+    guid: 7c962c34fd65b314ebe961c57a58c493
   m_configObjects: {}

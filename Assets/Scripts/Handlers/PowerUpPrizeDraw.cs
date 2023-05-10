@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class PowerUpPrizeDraw : MonoBehaviour
 {
     [SerializeField] public RawImage PrizeDraw;
+    [SerializeField] public AudioClip SortingSound;
+    [SerializeField] public AudioSource AudioSFX;
     [SerializeField] public Animator PrizeDrawAnimator;
     [SerializeField] public List<PowerUpPercentaged> PowerUpPercentageds = new ();
 
@@ -31,6 +33,10 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     private void StartPrizeDraw(GameObject obj, int position)
     {
+        // Start sound
+        AudioSFX.clip = SortingSound;
+        AudioSFX.Play();
+
         // Debug.Log(obj);
         _cart = obj;
         _currentPlayerPosition = position;
@@ -72,6 +78,9 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
         PrizeDrawAnimator.SetInteger("PowerUpId", powerUp.GetId());
         PrizeDrawAnimator.SetBool("IsSorting", false);
+
+        // End Sound
+        AudioSFX.Stop();
 
         yield return new WaitForSeconds(1);
         if (powerUp.IsHotTriggered)
