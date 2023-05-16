@@ -16,9 +16,9 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        masterSlider.value = PlayerPrefs.GetFloat("Master");
-        fxSlider.value = PlayerPrefs.GetFloat("FX");
-        musicaSlider.value = PlayerPrefs.GetFloat("Musicas");
+        //masterSlider.value = PlayerPrefs.GetFloat("Master");
+        //fxSlider.value = PlayerPrefs.GetFloat("FX");
+        //musicaSlider.value = PlayerPrefs.GetFloat("Musicas");
     }
 
     public void VolumeGame()
