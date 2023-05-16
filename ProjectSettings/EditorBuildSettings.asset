@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ChooseCharacter.unity
     guid: 17c05a1ff51cb0d4882d46edc3e9f1bb
   - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 1d25c7de274db9749a7548608b49aa2f
+  - enabled: 1
     path: Assets/Scenes/EndCredits.unity
     guid: 41671c1392541b7408caf84fc9892785
   - enabled: 1
@@ -30,13 +33,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu/Settings.unity
     guid: a77f4aa0649d64d4f893b08f5714afbe
   - enabled: 0
-    path: Assets/Scenes/Fortress/CutsceneFortress.unity
+    path: 
     guid: 8f166328606501a46a7bd18d88830b13
   - enabled: 0
-    path: Assets/Scenes/Fortress/PodiumFortress.unity
+    path: 
     guid: 43d3576fccef451469109497b56db136
   - enabled: 0
-    path: Assets/Scenes/Fortress/RaceFortress.unity
+    path: 
     guid: b8e09ad02f2f6e841881ae567fb84a29
   - enabled: 0
     path: 
