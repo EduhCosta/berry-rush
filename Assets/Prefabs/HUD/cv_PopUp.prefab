@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &758760828168891121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -108,10 +108,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: No
+  m_text: NO
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8cb9f1bd47aea1c4c81295691b1fa78b, type: 2}
-  m_sharedMaterial: {fileID: -8086073766149966875, guid: 8cb9f1bd47aea1c4c81295691b1fa78b,
+  m_fontAsset: {fileID: 11400000, guid: 567e4a10d5a8d0d40af7228765ac2085, type: 2}
+  m_sharedMaterial: {fileID: -4088654769233748844, guid: 567e4a10d5a8d0d40af7228765ac2085,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -136,8 +136,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1076,29 +1076,29 @@ PrefabInstance:
     - target: {fileID: 7736562579214833401, guid: b249b67320030ea4381aff872dad6865,
         type: 3}
       propertyPath: m_text
-      value: Yes
+      value: YES
       objectReference: {fileID: 0}
     - target: {fileID: 7736562579214833401, guid: b249b67320030ea4381aff872dad6865,
         type: 3}
       propertyPath: m_fontSize
-      value: 48
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 7736562579214833401, guid: b249b67320030ea4381aff872dad6865,
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8cb9f1bd47aea1c4c81295691b1fa78b,
+      objectReference: {fileID: 11400000, guid: 567e4a10d5a8d0d40af7228765ac2085,
         type: 2}
     - target: {fileID: 7736562579214833401, guid: b249b67320030ea4381aff872dad6865,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 48
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 7736562579214833401, guid: b249b67320030ea4381aff872dad6865,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -8086073766149966875, guid: 8cb9f1bd47aea1c4c81295691b1fa78b,
+      objectReference: {fileID: -4088654769233748844, guid: 567e4a10d5a8d0d40af7228765ac2085,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b249b67320030ea4381aff872dad6865, type: 3}

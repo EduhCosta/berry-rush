@@ -317,7 +317,18 @@
                 {
                     "name": "",
                     "id": "54e2df7e-2682-4365-a8d7-295e99b3b569",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PowerUpTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f405f414-23aa-425a-b6b5-daad02645c87",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -349,8 +360,8 @@
                 },
                 {
                     "name": "",
-                    "id": "e9f5a476-0664-48ea-98a9-601fc6ca20cb",
-                    "path": "<Keyboard>/space",
+                    "id": "6f5a4e84-afdc-43ef-9690-42b1c6d48f20",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -655,6 +666,17 @@
                     "name": "",
                     "id": "5dcea1e9-7b72-44fc-8f1a-2dae7190308b",
                     "path": "<HID::MY-POWER CO.,LTD. 2In1 USB Joystick>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c137b8b-a3bd-4cdc-8428-6b3a844ded26",
+                    "path": "<HID::MY-POWER CO.,LTD. 2In1 USB Joystick>/button8",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

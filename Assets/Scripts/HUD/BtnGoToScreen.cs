@@ -32,6 +32,7 @@ public class BtnGoToScreen : MonoBehaviour
     /// </summary>
     private void GoTo()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneName);
     }
 }

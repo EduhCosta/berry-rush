@@ -2031,8 +2031,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: Banana
-  Bio: BANANA
-  Icon: {fileID: 21300000, guid: 0b3da02b0253232428b2e5edaa341d63, type: 3}
+  Bio: A fast peeling sprinter with a tropical charm.
+  Icon: {fileID: 21300000, guid: ed27ad57683c2d8408c68d9fcc898676, type: 3}
 --- !u!1 &1196791879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,8 +2235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: Apple
-  Bio: APPLE
-  Icon: {fileID: 21300000, guid: f3fc5ced939432a46a61aea16922ce43, type: 3}
+  Bio: A sleek, agile pilot as crisp as the breeze in the rainforest.
+  Icon: {fileID: 21300000, guid: 6c28f544eef3be245b216b520f0141f9, type: 3}
 --- !u!224 &1267737542 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3602714534520667309, guid: 36c0347d881d3954ba91b4f1616329db,
@@ -2445,8 +2445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: Pineapple
-  Bio: PINEAPPLE
-  Icon: {fileID: 21300000, guid: efe36b324af3f5a4298fa45be4d098b6, type: 3}
+  Bio: A spiky daredevil, bringing a sour flavor to every race.
+  Icon: {fileID: 21300000, guid: 5955d70ba3607184cb4f9c70e74f71a3, type: 3}
 --- !u!1 &1519653038
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,7 +2609,7 @@ RectTransform:
   m_GameObject: {fileID: 1544980327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -12.613209}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 219616490}
@@ -3710,8 +3710,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: Guarana
-  Bio: "GUARAN\xC1"
-  Icon: {fileID: 21300000, guid: a58599472a99dbf439a2414f444c51b6, type: 3}
+  Bio: "An energetic powerhouse fueled by the Amazonian spirit and lightning \r\nreflexes.\r"
+  Icon: {fileID: 21300000, guid: df516bbcc718294439a2a695d4174482, type: 3}
 --- !u!1 &2053964892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,8 +3747,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 65}
-  m_SizeDelta: {x: 350, y: 205}
+  m_AnchoredPosition: {x: -365, y: 60}
+  m_SizeDelta: {x: 320, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2053964894
 MonoBehaviour:
@@ -3798,8 +3798,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3834,7 +3834,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.24493408, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
