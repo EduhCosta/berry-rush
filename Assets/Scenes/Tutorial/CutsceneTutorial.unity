@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -465,14 +465,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras risus augue,
-    accumsan id dapibus ut, rhoncus sit amet lectus. Nullam ut nulla eros. In hac
-    habitasse platea dictumst. Sed nibh nisi, varius faucibus ultricies at, congue
-    ut nunc. Mauris viverra interdum purus, nec porta ante. Aliquam erat volutpat.
-    Etiam eu nisi nisl. Integer ac viverra odio. Vestibulum rhoncus erat ut mi pellentesque,
-    a ornare erat rhoncus. Nunc lobortis erat dignissim turpis blandit elementum.
-    In aliquam tempor ipsum, id scelerisque arcu molestie quis. Suspendisse mollis
-    maximus nisi.
+  m_text: 'In the heart of the lush Amazon rainforest rises a legendary racetrack,
+    its vibrant foliage beckoning with emotion. Berry the enigmatic posed an exciting
+    challenge for four daring pilots: Pineapple, Apple, Guarana and Banana. As the
+    engines revved to life, the scent of adventure wafted through the air, setting
+    the stage for a race into the wilderness. Amid dense canopies and treacherous
+    terrain, who will overcome the ultimate test of speed and skill and claim victory
+    over the enigmatic ruler of the rainforest?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5479d0071c4d2149995954e17db95d2, type: 2}
   m_sharedMaterial: {fileID: -6552636036612633365, guid: b5479d0071c4d2149995954e17db95d2,
@@ -500,24 +499,24 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 2
+  m_wordSpacing: 5
+  m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
+  m_wordWrappingRatios: 1
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
@@ -528,8 +527,8 @@ MonoBehaviour:
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
+  m_horizontalMapping: 2
+  m_verticalMapping: 2
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
   m_IsTextObjectScaleStatic: 0

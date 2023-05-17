@@ -1499,7 +1499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScreen: CutsceneTutorial
-  TimeToGo: 15
+  TimeToGo: 1
 --- !u!4 &1931392164
 Transform:
   m_ObjectHideFlags: 0
