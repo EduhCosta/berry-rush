@@ -18,6 +18,8 @@ public class PowerUpPrizeDraw : MonoBehaviour
     private int _currentPlayerPosition = 4;
     private GameObject _cart;
     private PowerUp _pu;
+    private bool _isSorting = false;
+    private bool _canGetPowerUp = true;
 
     private void OnEnable()
     {
@@ -33,9 +35,7 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     private void StartPrizeDraw(GameObject obj, int position)
     {
-        // Start sound
-        AudioSFX.clip = SortingSound;
-        AudioSFX.Play();
+        
 
         // Debug.Log(obj);
         _cart = obj;
@@ -48,7 +48,16 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
         if (PlayerIdentifier.IsPlayer(obj)) PrizeDrawAnimator.SetBool("IsSorting", true);
         
-        OnPrizeDraw();
+        if (_canGetPowerUp)
+        {
+            // Start sound
+            AudioSFX.clip = SortingSound;
+            AudioSFX.Play();
+
+            _canGetPowerUp = false;
+            _isSorting = true;
+            OnPrizeDraw();
+        }
     }
 
     private void OnPrizeDraw()
@@ -74,10 +83,11 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     IEnumerator SelectPowerUp(PowerUp powerUp)
     {
-        yield return new WaitForSeconds(3); //Time to keep sorting
+        yield return new WaitForSeconds(3); // Time to keep sorting
 
         PrizeDrawAnimator.SetInteger("PowerUpId", powerUp.GetId());
         PrizeDrawAnimator.SetBool("IsSorting", false);
+        _isSorting = false;
 
         // End Sound
         AudioSFX.Stop();
@@ -91,7 +101,11 @@ public class PowerUpPrizeDraw : MonoBehaviour
     
     private void OnConsumePowerUp()
     {
-        _pu.Run(_cart);
-        PrizeDrawAnimator.SetTrigger("UsePoweUp");
+        if (_isSorting == false && _canGetPowerUp == false)
+        {
+            _pu.Run(_cart);
+            PrizeDrawAnimator.SetTrigger("UsePoweUp");
+            _canGetPowerUp = true;
+        }
     }
 }
