@@ -17,6 +17,7 @@ public class SetupInputActions : MonoBehaviour
     void Start()
     {
         image = gameObject.GetComponent<Image>();
+        image.sprite = ImageJoystick;
     }
 
     void Awake()
