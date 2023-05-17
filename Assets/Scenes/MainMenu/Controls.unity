@@ -1516,6 +1516,7 @@ GameObject:
   - component: {fileID: 2091133909}
   - component: {fileID: 2091133911}
   - component: {fileID: 2091133910}
+  - component: {fileID: 2091133912}
   m_Layer: 5
   m_Name: img_joystick
   m_TagString: Untagged
@@ -1578,6 +1579,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091133908}
   m_CullTransparentMesh: 1
+--- !u!114 &2091133912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091133908}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba3ce9335564054a92bc5e95d436972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 16cfad5c497860448a73a372dbb3e35c, type: 3}
+  ImageKeyboard: {fileID: 21300000, guid: 2d570bfa44588474891fdd56afb167a3, type: 3}
+  ImageJoystick: {fileID: 21300000, guid: 8fe4c21424d07c54197cf8cdb906f4ad, type: 3}
 --- !u!224 &916366941694153808
 RectTransform:
   m_ObjectHideFlags: 0
