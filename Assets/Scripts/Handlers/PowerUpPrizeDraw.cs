@@ -35,9 +35,7 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     private void StartPrizeDraw(GameObject obj, int position)
     {
-        // Start sound
-        AudioSFX.clip = SortingSound;
-        AudioSFX.Play();
+        
 
         // Debug.Log(obj);
         _cart = obj;
@@ -52,6 +50,10 @@ public class PowerUpPrizeDraw : MonoBehaviour
         
         if (_canGetPowerUp)
         {
+            // Start sound
+            AudioSFX.clip = SortingSound;
+            AudioSFX.Play();
+
             _canGetPowerUp = false;
             _isSorting = true;
             OnPrizeDraw();
