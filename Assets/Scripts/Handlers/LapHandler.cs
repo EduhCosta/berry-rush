@@ -31,7 +31,10 @@ public class LapHandler : MonoBehaviour
                 RaceStorage.Instance.UpdateCurrentLapByRacer(racerId);
             }
 
-            if (RaceStorage.Instance.GetCurrentLapByRacer(racerId).lapDone == LapQuantity + 1)
+            if (
+                PlayerIdentifier.IsPlayer(other) &&  // Se o player
+                RaceStorage.Instance.GetCurrentLapByRacer(racerId).lapDone == LapQuantity + 1 // Terminar todas as voltas
+               )
             {
                 EndRace();
             }
