@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Music_Continue : MonoBehaviour
 {
@@ -21,9 +22,15 @@ public class Music_Continue : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        if (SceneManager.GetActiveScene().name.Contains("Race"))
+        {
+            //Destroy(gameObject);
+            BackgroundMusic.Pause();
+        } 
+        else { 
+            BackgroundMusic.Play();
+        }
     }
 }
