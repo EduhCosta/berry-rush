@@ -29,7 +29,7 @@ public class CutsceneJumper : MonoBehaviour
 
     void GoToScene(InputAction.CallbackContext context)
     {
-        if (SceneManager.GetActiveScene().name.Contains("Cutscene"))
+        if (SceneManager.GetActiveScene().name.Contains("Cutscene") || SceneManager.GetActiveScene().name.Contains("Loading"))
         {
             SceneManager.LoadScene(SceneName);
         }

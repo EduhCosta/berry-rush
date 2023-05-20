@@ -28,7 +28,7 @@ EditorBuildSettings:
     guid: 17c05a1ff51cb0d4882d46edc3e9f1bb
   - enabled: 1
     path: Assets/Scenes/LoadingScreen.unity
-    guid: 1d25c7de274db9749a7548608b49aa2f
+    guid: e430b45623ea558428724b36dd438529
   - enabled: 1
     path: Assets/Scenes/Tutorial/CutsceneTutorial.unity
     guid: 7c962c34fd65b314ebe961c57a58c493
