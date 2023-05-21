@@ -17,7 +17,7 @@ public class SetupInputActions : MonoBehaviour
     void Start()
     {
         image = gameObject.GetComponent<Image>();
-        image.sprite = ImageJoystick;
+        image.sprite = LocalStorage.GetIsUsingKeyboard(false) ? ImageKeyboard : ImageJoystick;
     }
 
     void Awake()
@@ -42,11 +42,13 @@ public class SetupInputActions : MonoBehaviour
     private void OnKeyboard(InputAction.CallbackContext context)
     {
         image.sprite = ImageKeyboard;
+        LocalStorage.SetIsUsingKeyboard(true);
     }
 
     private void OnJoystick(InputAction.CallbackContext context)
     {
         image.sprite = ImageJoystick;
+        LocalStorage.SetIsUsingKeyboard(false);
     }
 
 }

@@ -19,7 +19,7 @@ public class SetCharacterBio : MonoBehaviour
         SelectableButton.SelectedCharacter -= SetBio;
     }
 
-    void SetBio(string CharacterName, string Bio, Sprite Icon)
+    void SetBio(string CharacterName, string Bio, Sprite Icon, int id)
     {
         TxtBio.text = Bio;
     }

@@ -25,7 +25,7 @@ public class SetCharacterIcon : MonoBehaviour
         
     }
 
-    void SetIcon(string CharacterName, string Bio, Sprite Icon)
+    void SetIcon(string CharacterName, string Bio, Sprite Icon, int id)
     {
         image.sprite = Icon;
     }
