@@ -19,7 +19,7 @@ public class SetCharacterName : MonoBehaviour
         SelectableButton.SelectedCharacter -= SetTitle;
     }
 
-    void SetTitle(string CharacterName, string Bio, Sprite Icon)
+    void SetTitle(string CharacterName, string Bio, Sprite Icon, int id)
     {
         Title.text = CharacterName;
     }

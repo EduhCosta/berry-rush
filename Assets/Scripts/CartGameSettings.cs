@@ -7,13 +7,30 @@ public class CartGameSettings : MonoBehaviour
     [SerializeField] public string PlayerName;
     [SerializeField] private string _playerId;
     [SerializeField] private float _cartWidth;
+    [SerializeField] public int _kartSelected;
 
 
     private void Awake()
     {
+        if (PlayerIdentifier.IsPlayer(gameObject)) _kartSelected = LocalStorage.GetSelectedCharacter(_kartSelected);
+
         TagValidationException();
         SetId();
         SetCartWidth();
+    }
+
+    private void Update()
+    {
+        SelectKart();
+    }
+
+    private void SelectKart()
+    {
+        if (_kartSelected != GetComponentInChildren<KartSelector>().GetId())
+        {
+            KartSelector ks = GetComponentInChildren<KartSelector>();
+            ks.SetId(_kartSelected);
+        }
     }
 
     /// <summary>

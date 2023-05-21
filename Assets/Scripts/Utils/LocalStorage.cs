@@ -8,6 +8,8 @@ public class LocalStorage
     const string VOICES_VOLUME = "@BERRYRUSH_VOICES_VOLUME";
     const string RESOLUTION = "@BERRYRUSH_RESOLUTION";
     const string FULL_SCREEN = "@BERRYRUSH_FULL_SCREEN";
+    const string SELECTED_CHAR = "@BERRYRUSH_SELECTED_CHAR";
+    const string INPUT_ACTIONS = "@BERRYRUSH_INPUT_ACTIONS";
 
     #region GeneralVolume
     public static void SetGeneralVolume(float currentValue)
@@ -78,6 +80,30 @@ public class LocalStorage
     public static bool GetFullScreen(bool defaultValue)
     {
         return PlayerPrefsX.GetBool(FULL_SCREEN, defaultValue);
+    }
+    #endregion
+
+    #region SelectedCharacter
+    public static void SetSelectedCharacter(int currentValue)
+    {
+        PlayerPrefs.SetInt(SELECTED_CHAR, currentValue);
+    }
+
+    public static int GetSelectedCharacter(int defaultValue)
+    {
+        return PlayerPrefs.GetInt(SELECTED_CHAR, defaultValue);
+    }
+    #endregion
+
+    #region IsUsingKeyboard
+    public static void SetIsUsingKeyboard(bool currentValue)
+    {
+        PlayerPrefsX.SetBool(INPUT_ACTIONS, currentValue);
+    }
+
+    public static bool GetIsUsingKeyboard(bool defaultValue)
+    {
+        return PlayerPrefsX.GetBool(INPUT_ACTIONS, defaultValue);
     }
     #endregion
 }
