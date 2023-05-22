@@ -3,32 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using System;
 
 public class PauseMenu : MonoBehaviour
 {
     public Transform pauseMenu;
     [SerializeField] public GameObject eSystem;
-    
+    [Header("Actions")]
+    [SerializeField] public InputActionAsset Actions;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-       
+        Actions.FindActionMap("Gameplay").FindAction("JumpCutscene").performed += OnPause;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton9))
-        {
-            if (pauseMenu.gameObject.activeSelf) 
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+        Actions.FindActionMap("Gameplay").Enable();
+    }
+
+    public void OnDisable()
+    {
+        Actions.FindActionMap("Gameplay").Disable();
+    }
+
+    void OnPause(InputAction.CallbackContext context)
+    {
+        if (SceneManager.GetActiveScene().name.Contains("Race")){
+                if (pauseMenu.gameObject.activeSelf)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
         }
     }
 
@@ -45,6 +55,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
+
 
 
 }
