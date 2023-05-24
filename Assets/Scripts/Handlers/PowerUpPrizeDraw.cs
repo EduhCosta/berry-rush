@@ -8,11 +8,12 @@ using UnityEngine.UI;
 
 public class PowerUpPrizeDraw : MonoBehaviour
 {
+
     [SerializeField] public RawImage PrizeDraw;
     [SerializeField] public AudioClip SortingSound;
     [SerializeField] public AudioSource AudioSFX;
     [SerializeField] public Animator PrizeDrawAnimator;
-    [SerializeField] public List<PowerUpPercentaged> PowerUpPercentageds = new ();
+    [SerializeField] public List<PowerUpPercentaged> PowerUpPercentageds = new();
 
     private List<PowerUpPercentaged> _validList;
     private int _currentPlayerPosition = 4;
@@ -35,21 +36,20 @@ public class PowerUpPrizeDraw : MonoBehaviour
 
     private void StartPrizeDraw(GameObject obj, int position)
     {
-        
 
-        // Debug.Log(obj);
-        _cart = obj;
-        _currentPlayerPosition = position;
-
-        _validList = PowerUpPercentageds.FindAll(pw => pw.GetPercentageByPosition(position) > 0);
-        int acc = 0;
-        foreach (PowerUpPercentaged item in _validList) acc += item.GetPercentageByPosition(position);
-        if (acc < 100) throw new Exception("The SUM of Percentages should be equal 100");
-
-        if (PlayerIdentifier.IsPlayer(obj)) PrizeDrawAnimator.SetBool("IsSorting", true);
-        
         if (_canGetPowerUp)
         {
+            // Debug.Log(obj);
+            _cart = obj;
+            _currentPlayerPosition = position;
+
+            _validList = PowerUpPercentageds.FindAll(pw => pw.GetPercentageByPosition(position) > 0);
+            int acc = 0;
+            foreach (PowerUpPercentaged item in _validList) acc += item.GetPercentageByPosition(position);
+            if (acc < 100) throw new Exception("The SUM of Percentages should be equal 100");
+
+            if (PlayerIdentifier.IsPlayer(obj)) PrizeDrawAnimator.SetBool("IsSorting", true);
+
             // Start sound
             AudioSFX.clip = SortingSound;
             AudioSFX.Play();
@@ -93,19 +93,49 @@ public class PowerUpPrizeDraw : MonoBehaviour
         AudioSFX.Stop();
 
         yield return new WaitForSeconds(1);
+
         if (powerUp.IsHotTriggered)
         {
             OnConsumePowerUp();
         }
     }
-    
+
     private void OnConsumePowerUp()
     {
         if (_isSorting == false && _canGetPowerUp == false)
         {
             _pu.Run(_cart);
+
             PrizeDrawAnimator.SetTrigger("UsePoweUp");
+            if (_pu.FeedbackAudio != null)
+            {
+                AudioSFX.clip = _pu.FeedbackAudio;
+                AudioSFX.Play();
+            }
+
+            if (_pu.FeedbackParticles != null)
+            {
+                _pu.FeedbackParticles.gameObject.SetActive(true);
+                _pu.FeedbackParticles.Play();
+            }
+
+            StartCoroutine(StopPoweUpEffects(_pu.GetLifeTime()));
             _canGetPowerUp = true;
+        }
+    }
+
+    IEnumerator StopPoweUpEffects(float secDelay)
+    {
+        yield return new WaitForSeconds(secDelay); // Time to keep sorting
+
+        if (_pu.FeedbackAudio != null)
+        {
+            AudioSFX.Stop();
+        }
+
+        if (_pu.FeedbackParticles != null)
+        {
+            _pu.FeedbackParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
     }
 }

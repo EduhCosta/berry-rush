@@ -37,6 +37,10 @@ public class PowerUp: MonoBehaviour
     [SerializeField] private bool _isInvencible;
     [SerializeField] private float _targeForce;
 
+    [Header("Feedbacks")]
+    [SerializeField] public AudioClip FeedbackAudio;
+    [SerializeField] public ParticleSystem FeedbackParticles;
+
     // Props
     // private LayerMask _target;
     // private float _lifeTime;
@@ -78,6 +82,11 @@ public class PowerUp: MonoBehaviour
     public int GetId()
     {
         return _id;
+    }
+
+    public float GetLifeTime()
+    {
+        return _lifeTime;
     }
 
     public void Run(GameObject cart)
