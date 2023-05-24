@@ -55,6 +55,7 @@ public class RaceStorage : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
+        PodiumStore.Instance.EndGame(); // HERE
         _currentTime = 0f;
         _isStartRacer = true;
     }

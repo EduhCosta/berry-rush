@@ -73,7 +73,7 @@ public class SetPositions : MonoBehaviour
         if (_timer > 3)
         {
             RaceStorage.Instance.EndGame();
-            PodiumStore.Instance.EndGame();
+            // PodiumStore.Instance.EndGame();
             SceneManager.LoadScene("PodiumTutorial");
         }
     }

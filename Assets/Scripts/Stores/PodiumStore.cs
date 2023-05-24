@@ -71,6 +71,11 @@ public class PodiumStore : MonoBehaviour
         return positions[position - 1].cart.gameObject;
     }
 
+    public Podium GetPodiumByPosition(int position)
+    {
+        return positions[position - 1];
+    }
+
     public void EndGame()
     {
         positions = new();
