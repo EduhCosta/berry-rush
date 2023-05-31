@@ -1,12 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
 
 public class SetPositions : MonoBehaviour
 {
@@ -33,34 +28,36 @@ public class SetPositions : MonoBehaviour
 
     void Update()
     {
-        for(int i = 0; i < _positions.Count; i++)
+        if (!_isTimerTrigged)
         {
-            if (_positions.Count > 3) // ToDo: Change to size of racers list
+            for (int i = 0; i < _positions.Count; i++)
             {
-                if (PlayerIdentifier.IsPlayer(_positions[i].cart.gameObject))
+                if (_positions.Count > 3) // ToDo: Change to size of racers list
                 {
-                    int position = i + 1;
-                    string idetificator = "";
-                    if (position == 1)
+                    if (PlayerIdentifier.IsPlayer(_positions[i].cart.gameObject))
                     {
-                        idetificator = "st";
+                        int position = i + 1;
+                        string idetificator = "";
+                        if (position == 1)
+                        {
+                            idetificator = "st";
+                        }
+                        if (position == 2)
+                        {
+                            idetificator = "nd";
+                        }
+                        if (position == 3)
+                        {
+                            idetificator = "rd";
+                        }
+                        if (position == 4)
+                        {
+                            idetificator = "th";
+                        }
+                        pos = position;
+                        CurrentPosition.text = $"{i + 1} ";
+                        PositionIndication.text = idetificator;
                     }
-                    if (position == 2)
-                    {
-                        idetificator = "nd";
-                    }
-                    if (position == 3)
-                    {
-                        idetificator = "rd";
-                    }
-                    if (position == 4)
-                    {
-                        idetificator = "th";
-                    }
-
-                    CurrentPosition.text = $"{i + 1} ";
-                    pos = i + 1;
-                    PositionIndication.text = idetificator;
                 }
             }
         }
@@ -77,7 +74,7 @@ public class SetPositions : MonoBehaviour
         {
             RaceStorage.Instance.EndGame();
             // PodiumStore.Instance.EndGame();
-            Debug.Log(pos);
+            PodiumStore.Instance.SetPlayerPos(pos);
             if (pos == 1) SceneManager.LoadScene("WinCutscene");
             else SceneManager.LoadScene("PodiumTutorial");
         }

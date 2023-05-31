@@ -17,7 +17,7 @@ public class SetWinCutscene : MonoBehaviour
     void Start()
     {
         image = ImageInput.GetComponent<Image>();
-        Podium podium = PodiumStore.Instance.GetPodiumByPosition(1);
+        Podium podium = PodiumStore.Instance.GetPlayerPodium();
         switch(podium.cart._kartSelected)
         {
             case 1:
