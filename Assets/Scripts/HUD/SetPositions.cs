@@ -77,6 +77,7 @@ public class SetPositions : MonoBehaviour
         {
             RaceStorage.Instance.EndGame();
             // PodiumStore.Instance.EndGame();
+            Debug.Log(pos);
             if (pos == 1) SceneManager.LoadScene("WinCutscene");
             else SceneManager.LoadScene("PodiumTutorial");
         }
