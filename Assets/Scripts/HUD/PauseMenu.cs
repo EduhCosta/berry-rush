@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Assertions;
 using System;
 
 public class PauseMenu : MonoBehaviour
@@ -15,17 +16,17 @@ public class PauseMenu : MonoBehaviour
 
     void Awake()
     {
-        Actions.FindActionMap("Gameplay").FindAction("JumpCutscene").performed += OnPause;
+        Actions.FindActionMap("Pause").FindAction("Pause").performed += OnPause;
     }
 
     public void OnEnable()
     {
-        Actions.FindActionMap("Gameplay").Enable();
+        Actions.FindActionMap("Pause").Enable();
     }
 
     public void OnDisable()
     {
-        Actions.FindActionMap("Gameplay").Disable();
+        Actions.FindActionMap("Pause").Disable();
     }
 
     void OnPause(InputAction.CallbackContext context)

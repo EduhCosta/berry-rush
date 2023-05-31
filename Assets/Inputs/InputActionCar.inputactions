@@ -305,17 +305,6 @@
                 },
                 {
                     "name": "",
-                    "id": "23a3b878-4d69-429d-9ecc-e8b54d738a44",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "JumpCutscene",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "54e2df7e-2682-4365-a8d7-295e99b3b569",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -465,17 +454,6 @@
                     "name": "",
                     "id": "c43fa22a-fb4c-4452-904a-3c3d4a69deb1",
                     "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Back",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c4a43327-c18b-45d4-af71-f3c7ed08a184",
-                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -723,6 +701,56 @@
                     "processors": "",
                     "groups": "",
                     "action": "Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Pause",
+            "id": "2c270d86-92f6-4295-9df4-491c7ff152f3",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "d694dc5f-5633-444a-bae9-e26188c13011",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9f4daeb5-a5a2-409e-bb0e-86b81fe8a1a1",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e9368bd-553c-4829-be81-600ec1f93c24",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bab1157-da43-4d31-a322-969588cb51b9",
+                    "path": "<HID::MY-POWER CO.,LTD. 2In1 USB Joystick>/button9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
