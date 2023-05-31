@@ -315,4 +315,12 @@ public class RaceStorage : MonoBehaviour
     {
         return _currentTime;
     }
+
+    /// <summary>
+    /// Return if the current lap is the last one
+    /// </summary>
+    public bool IsLastLap()
+    {
+        return _currentLap == GetTotalRaceLap();
+    }
 }

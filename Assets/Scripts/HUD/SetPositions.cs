@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class SetPositions : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class SetPositions : MonoBehaviour
     private List<Podium> _positions = new();
     private bool _isTimerTrigged = false;
     private float _timer = 0;
+    private int pos = 0;
 
     private void OnEnable()
     {
@@ -57,6 +59,7 @@ public class SetPositions : MonoBehaviour
                     }
 
                     CurrentPosition.text = $"{i + 1} ";
+                    pos = i + 1;
                     PositionIndication.text = idetificator;
                 }
             }
@@ -74,7 +77,8 @@ public class SetPositions : MonoBehaviour
         {
             RaceStorage.Instance.EndGame();
             // PodiumStore.Instance.EndGame();
-            SceneManager.LoadScene("PodiumTutorial");
+            if (pos == 1) SceneManager.LoadScene("WinCutscene");
+            else SceneManager.LoadScene("PodiumTutorial");
         }
     }
 

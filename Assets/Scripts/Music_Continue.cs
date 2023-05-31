@@ -9,19 +9,7 @@ public class Music_Continue : MonoBehaviour
     public AudioSource BackgroundMusic;
     public AudioClip trackBG;
 
-    void Start()
-    {
-        if (SceneManager.GetActiveScene().name.Contains("Race"))
-        {
-            Destroy(gameObject);
-            //BackgroundMusic.Pause();
-        }
-        else
-        {
-            DontDestroyOnLoad(instance);
-            //BackgroundMusic.Play();
-        }
-    }
+    private bool _isPlayingMusic = false;
 
     void Awake()
     {
@@ -33,6 +21,26 @@ public class Music_Continue : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (_isPlayingMusic)
+        {
+            if (SceneManager.GetActiveScene().name.Contains("Race") || SceneManager.GetActiveScene().name.Contains("Cutscene"))
+            {
+                BackgroundMusic.Pause();
+                _isPlayingMusic = false;
+            }
+        }
+        else
+        {
+            if (!SceneManager.GetActiveScene().name.Contains("Race") && !SceneManager.GetActiveScene().name.Contains("Cutscene"))
+            {
+                BackgroundMusic.Play();
+                _isPlayingMusic = true;
+            }
         }
     }
 }

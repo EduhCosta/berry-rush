@@ -6,6 +6,7 @@ public class LapHandler : MonoBehaviour
 {
     [Header("Race Settings")]
     [SerializeField] public int LapQuantity = 0;
+    [SerializeField] public Animator FinalLapAnim;
 
     private int _currentLap = 1;
 
@@ -29,6 +30,14 @@ public class LapHandler : MonoBehaviour
             {
                 RaceStorage.Instance.SetLastLapTimeStamp(racerId, _currentLap);
                 RaceStorage.Instance.UpdateCurrentLapByRacer(racerId);
+            }
+
+            if (
+                PlayerIdentifier.IsPlayer(other) &&  // Se o player
+                RaceStorage.Instance.GetCurrentLapByRacer(racerId).lapDone == LapQuantity // Última volta
+               )
+            {
+                FinalLapAnim.SetBool("IsFinalLap", true);
             }
 
             if (
