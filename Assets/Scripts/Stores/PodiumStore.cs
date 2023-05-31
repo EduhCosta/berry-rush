@@ -9,6 +9,8 @@ public class PodiumStore : MonoBehaviour
     public List<Podium> positions = new();
     public static PodiumStore Instance { get; private set; }
 
+    private int _playerPos = 0;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -79,5 +81,19 @@ public class PodiumStore : MonoBehaviour
     public void EndGame()
     {
         positions = new();
+    }
+
+    public void SetPlayerPos(int pos)
+    {
+        _playerPos = pos;
+    }
+    public int GetPlayerPos()
+    {
+        return _playerPos;
+    }
+
+    public Podium GetPlayerPodium()
+    {
+        return positions[_playerPos - 1];
     }
 }
